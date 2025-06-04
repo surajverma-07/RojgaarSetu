@@ -214,7 +214,6 @@ const getVehicleApplicationById = async (req, res) => {
     if (!application) {
       return res.status(404).json({ message: "Vehicle application not found" })
     } 
-    console.log("Applicaion: vehicleFormId", application.vehicleFormId)
 
     // Check if the user is authorized to view this application
     // Either the applicant or the contractor who posted the vehicle form

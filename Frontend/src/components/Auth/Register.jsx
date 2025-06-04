@@ -40,10 +40,8 @@ const Register = () => {
     setError('');
     try {
       const data = await register({ name, email, phone, password, userType }).unwrap();
-      console.log('Registration data:', data); // Log the response data for debugging
       const userId = data?.user?.id;; 
       toast.success('Registration successful!');
-      console.log('User ID:', userId); // Log the user ID for debugging
       navigate('/verify-otp', { state: { userId } });
     } catch (err) {
       const msg = err?.data?.message || 'Registration failed. Please try again.';

@@ -8,8 +8,6 @@ const AllVehicles = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [minPrice, setMinPrice] = useState('')
 
-  console.log('data', data)
-
   const filterVehicles = () => {
     const vehicles = data?.vehicleForms || []
 

@@ -15,7 +15,6 @@ const OTPVerification = () => {
   const location = useLocation();
 
   const userId = location.state?.userId;
-  console.log('User ID from state:', userId); // Debugging log
   const [verifyOTP, { isLoading: isVerifying }] = useVerifyOtpMutation();
   const [resendOtp, { isLoading: isResending }] = useResendOtpMutation();
 
