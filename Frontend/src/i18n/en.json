@@ -1,0 +1,116 @@
+{
+  "portal": {
+    "worker": "Worker Portal",
+    "contractor": "Employer Portal",
+    "owner": "Vehicle Owner Portal",
+    "default": "Rojgar Setu"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "jobs": "Jobs",
+    "recommendations": "Recommendations",
+    "postJob": "Post Job",
+    "addVehicle": "Add Vehicle",
+    "vehicles": "Vehicles",
+    "home": "Home",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout"
+  },
+  "hero": {
+    "titleLine1": "Connect with Skilled",
+    "titleLine2": "Workers & Service Providers",
+    "description": "Your one-stop platform connecting contractors with skilled workers and vehicle/instrument owners. Get your work done efficiently and reliably.",
+    "btnFindWorkers": "Find Workers",
+    "btnPostJob": "Post a Job",
+    "imageAlt": "Workers Hero"
+  },
+  "whyChoose": {
+    "heading": "Why Choose Us",
+    "subheading": "Experience the future of digital innovation",
+    "cards": {
+      "automation": {
+        "title": "Smart Automation",
+        "desc": "Streamline your workflow with intelligent automation tools."
+      },
+      "security": {
+        "title": "Enhanced Security",
+        "desc": "Advanced protection for your sensitive data and privacy."
+      },
+      "analytics": {
+        "title": "Real-time Analytics",
+        "desc": "Get instant insights with powerful analytics tools."
+      }
+    }
+  },
+   "howItWorks": {
+    "heading": "How It Works",
+    "steps": {
+      "register": {
+        "title": "Register & Complete Profile",
+        "desc": "Create your account and complete your profile to start connecting with opportunities."
+      },
+      "connect": {
+        "title": "Connect & Apply",
+        "desc": "Browse through available jobs or post your requirements. Connect with the right people."
+      },
+      "work": {
+        "title": "Work & Get Rated",
+        "desc": "Complete jobs successfully and build your reputation through ratings and reviews."
+      }
+    }
+  },
+   "availableWorkers": {
+    "heading": "Available Workers",
+    "cards": {
+      "carpenters": {
+        "name": "Carpenters",
+        "desc": "Expert woodworkers for all your furniture and fitting needs.",
+        "button": "Find Carpenters"
+      },
+      "plumbers": {
+        "name": "Plumbers",
+        "desc": "Professional plumbers for all your pipe and fitting works.",
+        "button": "Find Plumbers"
+      },
+      "electricians": {
+        "name": "Electricians",
+        "desc": "Skilled electricians for all electrical installations and repairs.",
+        "button": "Find Electricians"
+      },
+      "vehicles": {
+        "name": "Vehicles & Equipment",
+        "desc": "Various construction vehicles and equipment for rent.",
+        "button": "Find Vehicles"
+      }
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "placeholderName": "Name",
+    "placeholderEmail": "Email",
+    "placeholderSubject": "Subject",
+    "placeholderMessage": "Message",
+    "btnSend": "Send Message"
+  },
+   "footer": {
+    "brandName": "Rojgar Setu",
+    "tagline": "Connecting skilled workers with opportunities.",
+    "quickLinksTitle": "Quick Links",
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "workers": "Workers",
+      "contact": "Contact"
+    },
+    "servicesTitle": "Services",
+    "services": {
+      "findWorkers": "Find Workers",
+      "postJobs": "Post Jobs",
+      "rentEquipment": "Rent Equipment",
+      "joinAsWorker": "Join as Worker"
+    },
+    "connectWithUs": "Connect With Us"
+  }
+}
