@@ -18,7 +18,7 @@
     "register": "रजिस्टर",
     "logout": "लॉगआउट"
   },
-   "hero": {
+  "hero": {
     "titleLine1": "कुशल लोगों से जुड़ें",
     "titleLine2": "मजदूरों और सेवा प्रदाताओं से",
     "description": "आपका एकमात्र प्लेटफ़ॉर्म जो ठेकेदारों को कुशल मज़दूरों और वाहन/उपकरण मालिकों से जोड़ता है। काम को कुशलता और विश्वसनीयता से पूरा करें।",
@@ -44,7 +44,7 @@
       }
     }
   },
-   "howItWorks": {
+  "howItWorks": {
     "heading": "यह कैसे काम करता है",
     "steps": {
       "register": {
@@ -112,5 +112,346 @@
       "joinAsWorker": "कामगार के रूप में जुड़ें"
     },
     "connectWithUs": "हमसे जुड़ें"
+  },
+  "auth": {
+    "signInToAccount": "अपने खाते में साइन इन करें",
+    "createAccount": "अपना खाता बनाएं",
+    "or": "या",
+    "createNewAccount": "नया खाता बनाएं",
+    "signInExisting": "अपने मौजूदा खाते में साइन इन करें",
+    "email": "ईमेल",
+    "emailPlaceholder": "आपका ईमेल पता",
+    "password": "पासवर्ड",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+    "confirmPasswordPlaceholder": "पासवर्ड दोबारा दर्ज करें",
+    "fullName": "पूरा नाम",
+    "fullNamePlaceholder": "आपका पूरा नाम",
+    "phone": "फोन",
+    "phonePlaceholder": "आपका फोन नंबर",
+    "registerAs": "के रूप में रजिस्टर करें",
+    "worker": "मजदूर",
+    "contractor": "ठेकेदार",
+    "owner": "मालिक",
+    "signIn": "साइन इन",
+    "register": "रजिस्टर",
+    "signingIn": "साइन इन हो रहा है...",
+    "registering": "रजिस्टर हो रहा है...",
+    "loginSuccess": "सफलतापूर्वक लॉग इन हो गए!",
+    "loginFailed": "लॉगिन विफल। कृपया अपनी साख जांचें।",
+    "registrationSuccess": "रजिस्ट्रेशन सफल!",
+    "registrationFailed": "रजिस्ट्रेशन विफल। कृपया पुनः प्रयास करें।",
+    "passwordMismatch": "पासवर्ड मेल नहीं खाते",
+    "verifyPhoneNumber": "अपना फोन नंबर सत्यापित करें",
+    "otpSentMessage": "हमने आपके फोन पर 6-अंकीय कोड भेजा है। इसे नीचे दर्ज करें।",
+    "verifyOTP": "OTP सत्यापित करें",
+    "verifying": "सत्यापित हो रहा है…",
+    "resendOTP": "OTP दोबारा भेजें",
+    "resending": "दोबारा भेजा जा रहा है…",
+    "resendOTPCountdown": "{{seconds}}s में OTP दोबारा भेजें",
+    "otpValidationError": "कृपया एक वैध 6-अंकीय OTP दर्ज करें",
+    "otpVerifiedSuccess": "OTP सफलतापूर्वक सत्यापित!",
+    "otpVerificationFailed": "OTP सत्यापन विफल। कृपया पुनः प्रयास करें।",
+    "otpResentSuccess": "OTP सफलतापूर्वक दोबारा भेजा गया!",
+    "otpResendFailed": "OTP दोबारा भेजने में विफल। कृपया पुनः प्रयास करें।"
+  },
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "perDay": "दिन",
+    "day": "दिन",
+    "years": "साल",
+    "noTitle": "कोई शीर्षक नहीं",
+    "noLocation": "कोई स्थान नहीं",
+    "notAvailable": "उपलब्ध नहीं",
+    "unknownJob": "अज्ञात नौकरी",
+    "unknownForm": "अज्ञात फॉर्म",
+    "name": "नाम",
+    "email": "ईमेल",
+    "phone": "फोन",
+    "status": "स्थिति",
+    "experience": "अनुभव",
+    "location": "स्थान",
+    "payscale": "वेतनमान",
+    "duration": "अवधि",
+    "accept": "स्वीकार करें",
+    "reject": "अस्वीकार करें",
+    "consider": "विचार करें",
+    "back": "वापस",
+    "viewApplication": "आवेदन देखें",
+    "pending": "लंबित",
+    "underreview": "समीक्षाधीन",
+    "approved": "अनुमोदित",
+    "accepted": "स्वीकृत",
+    "rejected": "अस्वीकृत",
+    "offerReceived": "ऑफर प्राप्त",
+    "unknown": "अज्ञात",
+    "actions": {
+      "download": "डाउनलोड",
+      "viewJob": "नौकरी देखें",
+      "viewForm": "फॉर्म देखें",
+      "viewDetails": "विवरण देखें",
+      "viewApplications": "आवेदन देखें",
+      "accept": "स्वीकार करें",
+      "reject": "अस्वीकार करें",
+      "apply": "आवेदन करें",
+      "sendOffer": "ऑफर भेजें"
+    },
+    "error": {
+      "default": "एक त्रुटि हुई। कृपया पुनः प्रयास करें।",
+      "unknown": "अज्ञात त्रुटि"
+    }
+  },
+  "applications": {
+    "applicationsForJob": "नौकरी के लिए आवेदन: {{title}}",
+    "applicationsForVehicle": "वाहन फॉर्म के लिए आवेदन: {{title}}",
+    "jobDetails": "नौकरी विवरण",
+    "vehicleFormDetails": "वाहन फॉर्म विवरण",
+    "applications": "आवेदन",
+    "noApplicationsYet": "अभी तक कोई आवेदन नहीं।",
+    "applicationDetails": "आवेदन विवरण",
+    "vehicleApplication": "वाहन आवेदन",
+    "applicantInformation": "आवेदक की जानकारी",
+    "vehicleDetails": "वाहन विवरण",
+    "appliedAt": "आवेदन दिया गया",
+    "profileLink": "प्रोफाइल लिंक",
+    "viewProfile": "प्रोफाइल देखें",
+    "feedbackForRejection": "अस्वीकृति के लिए फीडबैक प्रदान करें",
+    "feedbackPlaceholder": "अस्वीकृति के लिए फीडबैक प्रदान करें",
+    "feedbackOptional": "अस्वीकृति के लिए फीडबैक (वैकल्पिक)",
+    "sendOffer": "ऑफर भेजें",
+    "actionSuccess": "आवेदन {{action}} सफलतापूर्वक!",
+    "actionError": "आवेदन प्रसंस्करण में त्रुटि हुई। कृपया पुनः प्रयास करें।",
+    "requiredSkills": "आवश्यक कौशल",
+    "experienceRequired": "आवश्यक अनुभव",
+    "vehicleType": "वाहन प्रकार",
+    "requirements": "आवश्यकताएं",
+    "brand": "ब्रांड",
+    "model": "मॉडल",
+    "year": "साल",
+    "type": "प्रकार",
+    "quantity": "मात्रा",
+    "organization": "संगठन",
+    "purchaseDate": "खरीद तारीख",
+    "otherDetails": "अन्य विवरण",
+    "vehiclePictures": "वाहन की तस्वीरें",
+    "vehicleImageAlt": "वाहन {{number}}",
+    "feedback": "फीडबैक",
+    "noFeedbackProvided": "कोई फीडबैक प्रदान नहीं किया गया।"
+  },
+  "worker": {
+    "dashboard": {
+      "error": {
+        "fetchData": "डैशबोर्ड डेटा प्राप्त करने में त्रुटि"
+      },
+      "toast": {
+        "offerAccepted": "ऑफर सफलतापूर्वक स्वीकार किया गया",
+        "offerRejected": "ऑफर सफलतापूर्वक अस्वीकार किया गया",
+        "offerError": "ऑफर {{action}} करने में विफल: {{message}}",
+        "joiningAccepted": "ज्वाइनिंग लेटर सफलतापूर्वक स्वीकार किया गया",
+        "joiningError": "ज्वाइनिंग लेटर स्वीकार करने में विफल: {{message}}"
+      },
+      "appliedOn": "आवेदन दिया गया",
+      "recommendedJobs": "सुझाई गई नौकरियां",
+      "tabs": {
+        "applied": "आवेदित नौकरियां",
+        "offer": "ऑफर लेटर",
+        "joining": "ज्वाइनिंग लेटर"
+      },
+      "empty": {
+        "applied": "इस अनुभाग में अभी तक कोई नौकरी नहीं।",
+        "offer": "अभी तक कोई ऑफर लेटर प्राप्त नहीं हुआ।",
+        "joining": "अभी तक कोई ज्वाइनिंग लेटर प्राप्त नहीं हुआ।",
+        "recommended": "कोई सुझाई गई नौकरियां उपलब्ध नहीं।"
+      }
+    }
+  },
+  "contractor": {
+    "dashboard": {
+      "stats": {
+        "totalApplications": "कुल आवेदन",
+        "offersSent": "भेजे गए ऑफर",
+        "vehicleApplications": "वाहन आवेदन",
+        "vehicleOffers": "वाहन ऑफर"
+      },
+      "views": {
+        "jobPostings": "नौकरी पोस्टिंग",
+        "vehicleForms": "वाहन/उपकरण फॉर्म"
+      },
+      "sections": {
+        "jobPostings": "नौकरी पोस्टिंग",
+        "appliedCandidates": "आवेदित उम्मीदवार",
+        "vehicleForms": "वाहन/उपकरण फॉर्म",
+        "vehicleApplications": "वाहन आवेदन"
+      },
+      "actions": {
+        "createNewJob": "नई नौकरी बनाएं",
+        "createFirstJob": "अपनी पहली नौकरी बनाएं",
+        "createNewForm": "नया फॉर्म बनाएं",
+        "createFirstForm": "अपना पहला फॉर्म बनाएं",
+        "sendJoiningLetter": "ज्वाइनिंग लेटर भेजें"
+      },
+      "table": {
+        "candidate": "उम्मीदवार",
+        "job": "नौकरी",
+        "status": "स्थिति",
+        "appliedOn": "आवेदन दिया गया",
+        "actions": "कार्य",
+        "applicant": "आवेदक",
+        "form": "फॉर्म"
+      },
+      "applicationsCount": "{{count}} आवेदन",
+      "postedOn": "पोस्ट किया गया",
+      "empty": {
+        "noJobs": "आपने अभी तक कोई नौकरी पोस्ट नहीं की है।",
+        "noCandidates": "अभी तक आपकी नौकरियों के लिए कोई उम्मीदवार आवेदन नहीं किया है।",
+        "noForms": "आपने अभी तक कोई वाहन/उपकरण फॉर्म पोस्ट नहीं किया है।",
+        "noVehicleApplications": "अभी तक कोई वाहन आवेदन प्राप्त नहीं हुआ है।"
+      },
+      "toast": {
+        "applicationAccepted": "आवेदन सफलतापूर्वक स्वीकार किया गया!",
+        "applicationRejected": "आवेदन सफलतापूर्वक अस्वीकार किया गया!",
+        "applicationError": "आवेदन प्रसंस्करण में त्रुटि हुई। कृपया पुनः प्रयास करें।",
+        "vehicleAccepted": "वाहन आवेदन सफलतापूर्वक स्वीकार किया गया!",
+        "vehicleRejected": "वाहन आवेदन सफलतापूर्वक अस्वीकार किया गया!",
+        "vehicleError": "वाहन आवेदन प्रसंस्करण में त्रुटि हुई। कृपया पुनः प्रयास करें।",
+        "joiningLetterSent": "ज्वाइनिंग लेटर सफलतापूर्वक भेजा गया!",
+        "joiningLetterError": "ज्वाइनिंग लेटर भेजने में त्रुटि हुई। कृपया पुनः प्रयास करें।"
+      }
+    }
+  },
+  "owner": {
+    "dashboard": {
+      "error": {
+        "fetchData": "डैशबोर्ड डेटा लोड करने में विफल। कृपया बाद में पुनः प्रयास करें।"
+      },
+      "tabs": {
+        "pending": "लंबित",
+        "accepted": "स्वीकृत",
+        "rejected": "अस्वीकृत"
+      },
+      "appliedOn": "आवेदन दिया गया",
+      "recommendedForms": "सुझाए गए फॉर्म",
+      "brand": "ब्रांड",
+      "quantity": "मात्रा",
+      "empty": {
+        "pending": "कोई लंबित आवेदन नहीं।",
+        "accepted": "कोई स्वीकृत आवेदन नहीं।",
+        "rejected": "कोई अस्वीकृत आवेदन नहीं।",
+        "noRecommendations": "इस समय कोई सिफारिशें नहीं।"
+      }
+    }
+  },
+  "dashboard": {
+    "owner": {
+      "errorLoading": "डैशबोर्ड डेटा लोड करने में विफल। कृपया बाद में पुनः प्रयास करें।",
+      "status": {
+        "pending": "लंबित",
+        "accepted": "स्वीकृत",
+        "rejected": "अस्वीकृत"
+      },
+      "notAvailable": "उपलब्ध नहीं",
+      "appliedOn": "आवेदन दिया गया",
+      "noApplicationsInCategory": "इस श्रेणी में कोई आवेदन नहीं।",
+      "recommendedForms": "सुझाए गए फॉर्म",
+      "brand": "ब्रांड",
+      "day": "दिन",
+      "quantity": "मात्रा",
+      "viewDetails": "विवरण देखें",
+      "noRecommendations": "इस समय कोई सिफारिशें नहीं।"
+    },
+    "worker": {
+      "loading": "लोड हो रहा है...",
+      "errorFetching": "डैशबोर्ड डेटा प्राप्त करने में त्रुटि",
+      "offerAccepted": "ऑफर सफलतापूर्वक स्वीकार किया गया",
+      "offerRejected": "ऑफर सफलतापूर्वक अस्वीकार किया गया",
+      "offerResponseError": "ऑफर {{action}} करने में विफल: {{message}}",
+      "joiningLetterAccepted": "ज्वाइनिंग लेटर सफलतापूर्वक स्वीकार किया गया",
+      "joiningLetterError": "ज्वाइनिंग लेटर स्वीकार करने में विफल: {{message}}",
+      "unknownError": "अज्ञात त्रुटि",
+      "status": {
+        "underReview": "समीक्षाधीन",
+        "approved": "अनुमोदित",
+        "rejected": "अस्वीकृत",
+        "offerReceived": "ऑफर प्राप्त"
+      },
+      "noTitle": "कोई शीर्षक नहीं",
+      "day": "दिन",
+      "noLocation": "कोई स्थान नहीं",
+      "appliedOn": "आवेदन दिया गया",
+      "viewJob": "नौकरी देखें",
+      "noJobsInSection": "इस अनुभाग में अभी तक कोई नौकरी नहीं।",
+      "download": "डाउनलोड",
+      "accept": "स्वीकार करें",
+      "reject": "अस्वीकार करें",
+      "noOfferLetters": "अभी तक कोई ऑफर लेटर प्राप्त नहीं हुआ।",
+      "noJoiningLetters": "अभी तक कोई ज्वाइनिंग लेटर प्राप्त नहीं हुआ।",
+      "recommendedJobs": "सुझाई गई नौकरियां",
+      "noDuration": "कोई अवधि नहीं",
+      "apply": "आवेदन करें",
+      "noRecommendedJobs": "कोई सुझाई गई नौकरियां उपलब्ध नहीं।",
+      "tabs": {
+        "appliedJobs": "आवेदित नौकरियां",
+        "offerLetters": "ऑफर लेटर",
+        "joiningLetters": "ज्वाइनिंग लेटर"
+      }
+    },
+    "contractor": {
+      "welcome": "स्वागत है",
+      "manageJobsAndApplications": "अपनी नौकरियों और आवेदनों का प्रबंधन करें।",
+      "tabs": {
+        "jobManagement": "नौकरी प्रबंधन",
+        "vehicleManagement": "वाहन प्रबंधन"
+      },
+      "stats": {
+        "totalApplications": "कुल आवेदन",
+        "offersSent": "भेजे गए ऑफर",
+        "activeJobs": "सक्रिय नौकरियां",
+        "vehicleForms": "वाहन फॉर्म"
+      },
+      "jobPostings": "नौकरी पोस्टिंग",
+      "createNewJob": "नई नौकरी बनाएं",
+      "applications": "आवेदन",
+      "viewJob": "नौकरी देखें",
+      "viewApplications": "आवेदन देखें",
+      "day": "दिन",
+      "postedOn": "पोस्ट किया गया",
+      "noJobsPosted": "आपने अभी तक कोई नौकरी पोस्ट नहीं की है।",
+      "createFirstJob": "अपनी पहली नौकरी बनाएं",
+      "appliedCandidates": "आवेदित उम्मीदवार",
+      "candidate": "उम्मीदवार",
+      "position": "पद",
+      "status": "स्थिति",
+      "appliedDate": "आवेदन दिनांक",
+      "actions": "कार्य",
+      "unknownCandidate": "अज्ञात उम्मीदवार",
+      "unknownPosition": "अज्ञात पद",
+      "underReview": "समीक्षाधीन",
+      "viewApplication": "आवेदन देखें",
+      "sendOffer": "ऑफर भेजें",
+      "reject": "अस्वीकार करें",
+      "noCandidatesApplied": "अभी तक आपकी नौकरियों के लिए कोई उम्मीदवार आवेदन नहीं किया है।",
+      "joinedCandidates": "शामिल हुए उम्मीदवार",
+      "joined": "शामिल हुआ",
+      "joinedDate": "शामिल होने की तारीख",
+      "noJoinedCandidates": "कोई उम्मीदवार अभी तक शामिल नहीं हुआ है।",
+      "vehicleForms": "वाहन फॉर्म",
+      "createNewForm": "नया फॉर्म बनाएं",
+      "viewForm": "फॉर्म देखें",
+      "createdOn": "बनाया गया",
+      "noVehicleFormsPosted": "आपने अभी तक कोई वाहन/उपकरण फॉर्म पोस्ट नहीं किया है।",
+      "createFirstForm": "अपना पहला फॉर्म बनाएं",
+      "vehicleApplications": "वाहन आवेदन",
+      "owner": "मालिक",
+      "vehicleType": "वाहन प्रकार",
+      "pending": "लंबित",
+      "unknownOwner": "अज्ञात मालिक",
+      "accept": "स्वीकार करें",
+      "noVehicleApplications": "कोई वाहन आवेदन नहीं।",
+      "offerSentSuccess": "ऑफर सफलतापूर्वक भेजा गया",
+      "applicationRejected": "आवेदन अस्वीकार किया गया",
+      "joiningLetterSent": "ज्वाइनिंग लेटर भेजा गया",
+      "vehicleApplicationAccepted": "वाहन आवेदन स्वीकार किया गया",
+      "vehicleApplicationRejected": "वाहन आवेदन अस्वीकार किया गया",
+      "actionFailed": "कार्य विफल हुआ"
+    }
   }
 }

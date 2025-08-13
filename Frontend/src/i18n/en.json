@@ -44,7 +44,7 @@
       }
     }
   },
-   "howItWorks": {
+  "howItWorks": {
     "heading": "How It Works",
     "steps": {
       "register": {
@@ -61,7 +61,7 @@
       }
     }
   },
-   "availableWorkers": {
+  "availableWorkers": {
     "heading": "Available Workers",
     "cards": {
       "carpenters": {
@@ -94,7 +94,7 @@
     "placeholderMessage": "Message",
     "btnSend": "Send Message"
   },
-   "footer": {
+  "footer": {
     "brandName": "Rojgar Setu",
     "tagline": "Connecting skilled workers with opportunities.",
     "quickLinksTitle": "Quick Links",
@@ -112,5 +112,349 @@
       "joinAsWorker": "Join as Worker"
     },
     "connectWithUs": "Connect With Us"
+  },
+  "auth": {
+    "signInToAccount": "Sign in to your account",
+    "createAccount": "Create Your Account",
+    "or": "Or",
+    "createNewAccount": "create a new account",
+    "signInExisting": "sign in to your existing account",
+    "email": "Email",
+    "emailPlaceholder": "Your email address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Re-enter password",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Your full name",
+    "phone": "Phone",
+    "phonePlaceholder": "Your phone number",
+    "registerAs": "Register as",
+    "worker": "Worker",
+    "contractor": "Contractor",
+    "owner": "Owner",
+    "signIn": "Sign in",
+    "register": "Register",
+    "signingIn": "Signing in...",
+    "registering": "Registering...",
+    "loginSuccess": "Logged in successfully!",
+    "loginFailed": "Login failed. Please check your credentials.",
+    "registrationSuccess": "Registration successful!",
+    "registrationFailed": "Registration failed. Please try again.",
+    "passwordMismatch": "Passwords do not match",
+    "verifyPhoneNumber": "Verify Your Phone Number",
+    "otpSentMessage": "We've sent a 6‑digit code to your phone. Enter it below.",
+    "verifyOTP": "Verify OTP",
+    "verifying": "Verifying…",
+    "resendOTP": "Resend OTP",
+    "resending": "Resending…",
+    "resendOTPCountdown": "Resend OTP in {{seconds}}s",
+    "otpValidationError": "Please enter a valid 6-digit OTP",
+    "otpVerifiedSuccess": "OTP verified successfully!",
+    "otpVerificationFailed": "OTP verification failed. Please try again.",
+    "otpResentSuccess": "OTP resent successfully!",
+    "otpResendFailed": "Failed to resend OTP. Please try again."
+  },
+  "config":{
+    
+  },
+  "common": {
+    "loading": "Loading...",
+    "perDay": "day",
+    "day": "day",
+    "years": "years",
+    "noTitle": "No Title",
+    "noLocation": "No Location",
+    "notAvailable": "N/A",
+    "unknownJob": "Unknown Job",
+    "unknownForm": "Unknown Form",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "status": "Status",
+    "experience": "Experience",
+    "location": "Location",
+    "payscale": "Payscale",
+    "duration": "Duration",
+    "accept": "Accept",
+    "reject": "Reject",
+    "consider": "Consider",
+    "back": "Back",
+    "viewApplication": "View Application",
+    "pending": "Pending",
+    "underreview": "Under Review",
+    "approved": "Approved",
+    "accepted": "Accepted",
+    "rejected": "Rejected",
+    "offerReceived": "Offer Received",
+    "unknown": "Unknown",
+    "actions": {
+      "download": "Download",
+      "viewJob": "View Job",
+      "viewForm": "View Form",
+      "viewDetails": "View Details",
+      "viewApplications": "View Applications",
+      "accept": "Accept",
+      "reject": "Reject",
+      "apply": "Apply",
+      "sendOffer": "Send Offer"
+    },
+    "error": {
+      "default": "An error occurred. Please try again.",
+      "unknown": "Unknown error"
+    }
+  },
+  "applications": {
+    "applicationsForJob": "Applications for Job: {{title}}",
+    "applicationsForVehicle": "Applications for Vehicle Form: {{title}}",
+    "jobDetails": "Job Details",
+    "vehicleFormDetails": "Vehicle Form Details",
+    "applications": "Applications",
+    "noApplicationsYet": "No applications yet.",
+    "applicationDetails": "Application Details",
+    "vehicleApplication": "Vehicle Application",
+    "applicantInformation": "Applicant Information",
+    "vehicleDetails": "Vehicle Details",
+    "appliedAt": "Applied At",
+    "profileLink": "Profile Link",
+    "viewProfile": "View Profile",
+    "feedbackForRejection": "Provide feedback for rejection",
+    "feedbackPlaceholder": "Provide feedback for rejection",
+    "feedbackOptional": "Feedback for rejection (optional)",
+    "sendOffer": "Send Offer",
+    "actionSuccess": "Application {{action}} successfully!",
+    "actionError": "An error occurred while processing the application. Please try again.",
+    "requiredSkills": "Required Skills",
+    "experienceRequired": "Experience Required",
+    "vehicleType": "Vehicle Type",
+    "requirements": "Requirements",
+    "brand": "Brand",
+    "model": "Model",
+    "year": "Year",
+    "type": "Type",
+    "quantity": "Quantity",
+    "organization": "Organization",
+    "purchaseDate": "Purchase Date",
+    "otherDetails": "Other Details",
+    "vehiclePictures": "Vehicle Pictures",
+    "vehicleImageAlt": "Vehicle {{number}}",
+    "feedback": "Feedback",
+    "noFeedbackProvided": "No feedback provided."
+  },
+  "worker": {
+    "dashboard": {
+      "error": {
+        "fetchData": "Error fetching dashboard data"
+      },
+      "toast": {
+        "offerAccepted": "Offer accepted successfully",
+        "offerRejected": "Offer rejected successfully",
+        "offerError": "Failed to {{action}} offer: {{message}}",
+        "joiningAccepted": "Joining letter accepted successfully",
+        "joiningError": "Failed to accept joining letter: {{message}}"
+      },
+      "appliedOn": "Applied on",
+      "recommendedJobs": "Recommended Jobs",
+      "tabs": {
+        "applied": "Applied Jobs",
+        "offer": "Offer Letters",
+        "joining": "Joining Letters"
+      },
+      "empty": {
+        "applied": "No jobs in this section yet.",
+        "offer": "No offer letters received yet.",
+        "joining": "No joining letters received yet.",
+        "recommended": "No recommended jobs available."
+      }
+    }
+  },
+  "contractor": {
+    "dashboard": {
+      "stats": {
+        "totalApplications": "Total Applications",
+        "offersSent": "Offers Sent",
+        "vehicleApplications": "Vehicle Applications",
+        "vehicleOffers": "Vehicle Offers"
+      },
+      "views": {
+        "jobPostings": "Job Postings",
+        "vehicleForms": "Vehicle/Instrument Forms"
+      },
+      "sections": {
+        "jobPostings": "Job Postings",
+        "appliedCandidates": "Applied Candidates",
+        "vehicleForms": "Vehicle/Instrument Forms",
+        "vehicleApplications": "Vehicle Applications"
+      },
+      "actions": {
+        "createNewJob": "Create New Job",
+        "createFirstJob": "Create Your First Job",
+        "createNewForm": "Create New Form",
+        "createFirstForm": "Create Your First Form",
+        "sendJoiningLetter": "Send Joining Letter"
+      },
+      "table": {
+        "candidate": "Candidate",
+        "job": "Job",
+        "status": "Status",
+        "appliedOn": "Applied On",
+        "actions": "Actions",
+        "applicant": "Applicant",
+        "form": "Form"
+      },
+      "applicationsCount": "{{count}} applications",
+      "postedOn": "Posted on",
+      "empty": {
+        "noJobs": "You haven't posted any jobs yet.",
+        "noCandidates": "No candidates have applied to your jobs yet.",
+        "noForms": "You haven't posted any vehicle/instrument forms yet.",
+        "noVehicleApplications": "No vehicle applications received yet."
+      },
+      "toast": {
+        "applicationAccepted": "Application accepted successfully!",
+        "applicationRejected": "Application rejected successfully!",
+        "applicationError": "An error occurred while processing the application. Please try again.",
+        "vehicleAccepted": "Vehicle application accepted successfully!",
+        "vehicleRejected": "Vehicle application rejected successfully!",
+        "vehicleError": "An error occurred while processing the vehicle application. Please try again.",
+        "joiningLetterSent": "Joining letter sent successfully!",
+        "joiningLetterError": "An error occurred while sending the joining letter. Please try again."
+      }
+    }
+  },
+  "owner": {
+    "dashboard": {
+      "error": {
+        "fetchData": "Failed to load dashboard data. Please try again later."
+      },
+      "tabs": {
+        "pending": "Pending",
+        "accepted": "Accepted",
+        "rejected": "Rejected"
+      },
+      "appliedOn": "Applied on",
+      "recommendedForms": "Recommended Forms",
+      "brand": "Brand",
+      "quantity": "Quantity",
+      "empty": {
+        "pending": "No pending applications.",
+        "accepted": "No accepted applications.",
+        "rejected": "No rejected applications.",
+        "noRecommendations": "No recommendations at this time."
+      }
+    }
+  },
+  "dashboard": {
+    "owner": {
+      "errorLoading": "Failed to load dashboard data. Please try again later.",
+      "status": {
+        "pending": "Pending",
+        "accepted": "Accepted",
+        "rejected": "Rejected"
+      },
+      "notAvailable": "N/A",
+      "appliedOn": "Applied on",
+      "noApplicationsInCategory": "No applications in this category.",
+      "recommendedForms": "Recommended Forms",
+      "brand": "Brand",
+      "day": "day",
+      "quantity": "Quantity",
+      "viewDetails": "View Details",
+      "noRecommendations": "No recommendations at this time."
+    },
+    "worker": {
+      "loading": "Loading...",
+      "errorFetching": "Error fetching dashboard data",
+      "offerAccepted": "Offer accepted successfully",
+      "offerRejected": "Offer rejected successfully",
+      "offerResponseError": "Failed to {{action}} offer: {{message}}",
+      "joiningLetterAccepted": "Joining letter accepted successfully",
+      "joiningLetterError": "Failed to accept joining letter: {{message}}",
+      "unknownError": "Unknown error",
+      "status": {
+        "underReview": "Under Review",
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "offerReceived": "Offer Received"
+      },
+      "noTitle": "No Title",
+      "day": "day",
+      "noLocation": "No Location",
+      "appliedOn": "Applied on",
+      "viewJob": "View Job",
+      "noJobsInSection": "No jobs in this section yet.",
+      "download": "Download",
+      "accept": "Accept",
+      "reject": "Reject",
+      "noOfferLetters": "No offer letters received yet.",
+      "noJoiningLetters": "No joining letters received yet.",
+      "recommendedJobs": "Recommended Jobs",
+      "noDuration": "No Duration",
+      "apply": "Apply",
+      "noRecommendedJobs": "No recommended jobs available.",
+      "tabs": {
+        "appliedJobs": "Applied Jobs",
+        "offerLetters": "Offer Letters",
+        "joiningLetters": "Joining Letters"
+      }
+    },
+    "contractor": {
+      "welcome": "Welcome",
+      "manageJobsAndApplications": "Manage your jobs and applications.",
+      "tabs": {
+        "jobManagement": "Job Management",
+        "vehicleManagement": "Vehicle Management"
+      },
+      "stats": {
+        "totalApplications": "Total Applications",
+        "offersSent": "Offers Sent",
+        "activeJobs": "Active Jobs",
+        "vehicleForms": "Vehicle Forms"
+      },
+      "jobPostings": "Job Postings",
+      "createNewJob": "Create New Job",
+      "applications": "applications",
+      "viewJob": "View Job",
+      "viewApplications": "View Applications",
+      "day": "day",
+      "postedOn": "Posted on",
+      "noJobsPosted": "You haven't posted any jobs yet.",
+      "createFirstJob": "Create Your First Job",
+      "appliedCandidates": "Applied Candidates",
+      "candidate": "Candidate",
+      "position": "Position",
+      "status": "Status",
+      "appliedDate": "Applied Date",
+      "actions": "Actions",
+      "unknownCandidate": "Unknown Candidate",
+      "unknownPosition": "Unknown Position",
+      "underReview": "Under Review",
+      "viewApplication": "View Application",
+      "sendOffer": "Send Offer",
+      "reject": "Reject",
+      "noCandidatesApplied": "No candidates have applied to your jobs yet.",
+      "joinedCandidates": "Joined Candidates",
+      "joined": "Joined",
+      "joinedDate": "Joined Date",
+      "noJoinedCandidates": "No candidates have joined yet.",
+      "vehicleForms": "Vehicle Forms",
+      "createNewForm": "Create New Form",
+      "viewForm": "View Form",
+      "createdOn": "Created on",
+      "noVehicleFormsPosted": "You haven't posted any vehicle/instrument forms yet.",
+      "createFirstForm": "Create Your First Form",
+      "vehicleApplications": "Vehicle Applications",
+      "owner": "Owner",
+      "vehicleType": "Vehicle Type",
+      "pending": "Pending",
+      "unknownOwner": "Unknown Owner",
+      "accept": "Accept",
+      "noVehicleApplications": "No vehicle applications.",
+      "offerSentSuccess": "Offer sent successfully",
+      "applicationRejected": "Application rejected",
+      "joiningLetterSent": "Joining letter sent",
+      "vehicleApplicationAccepted": "Vehicle application accepted",
+      "vehicleApplicationRejected": "Vehicle application rejected",
+      "actionFailed": "Action failed"
+    }
   }
 }
