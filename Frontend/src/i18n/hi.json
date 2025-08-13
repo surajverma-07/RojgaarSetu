@@ -154,6 +154,93 @@
     "otpResentSuccess": "OTP सफलतापूर्वक दोबारा भेजा गया!",
     "otpResendFailed": "OTP दोबारा भेजने में विफल। कृपया पुनः प्रयास करें।"
   },
+  "jobs": {
+    "posting": {
+      "title": "नौकरी पोस्टिंग बनाएं",
+      "subtitle": "नई नौकरी पोस्ट करने के लिए नीचे विवरण भरें।",
+      "success": "नौकरी पोस्ट सफलतापूर्वक बनाई गई!",
+      "error": "नौकरी पोस्टिंग बनाना विफल। कृपया पुनः प्रयास करें।",
+      "posting": "पोस्ट हो रहा है...",
+      "postJob": "नौकरी पोस्ट करें"
+    },
+    "update": {
+      "success": "नौकरी पोस्ट सफलतापूर्वक अपडेट की गई!",
+      "error": "अपडेट विफल। कृपया पुनः प्रयास करें।",
+      "updating": "अपडेट हो रहा है...",
+      "saveChanges": "परिवर्तन सहेजें"
+    },
+    "delete": {
+      "success": "नौकरी पोस्ट सफलतापूर्वक हटाई गई!",
+      "error": "हटाना विफल। कृपया पुनः प्रयास करें।",
+      "deleting": "हटाया जा रहा है...",
+      "confirmTitle": "हटाने की पुष्टि करें",
+      "confirmMessage": "क्या आप वाकई इस नौकरी पोस्ट को हटाना चाहते हैं?"
+    },
+    "details": {
+      "title": "नौकरी विवरण"
+    },
+    "fields": {
+      "jobTitle": "नौकरी का शीर्षक",
+      "jobTitlePlaceholder": "नौकरी का शीर्षक दर्ज करें",
+      "payscale": "वेतनमान",
+      "payscalePlaceholder": "वेतनमान",
+      "requiredSkill": "आवश्यक कौशल",
+      "requiredSkillPlaceholder": "आवश्यक कौशल",
+      "experience": "अनुभव (वर्ष)",
+      "experiencePlaceholder": "अनुभव",
+      "noOfWorkers": "मजदूरों की संख्या",
+      "noOfWorkersPlaceholder": "मजदूरों की संख्या",
+      "duration": "अवधि (दिन)",
+      "durationPlaceholder": "अवधि",
+      "location": "स्थान",
+      "locationPlaceholder": "स्थान",
+      "description": "नौकरी का विवरण",
+      "descriptionPlaceholder": "नौकरी की जिम्मेदारियों और आवश्यकताओं का वर्णन करें",
+      "title": "शीर्षक",
+      "years": "वर्ष",
+      "workers": "मजदूर"
+    },
+    "actions": {
+      "applyNow": "अभी आवेदन करें",
+      "viewDetails": "विवरण देखें"
+    },
+    "errors": {
+      "notFound": "नौकरी पोस्ट नहीं मिली या अनधिकृत।",
+      "notFoundOrRemoved": "नौकरी नहीं मिली या हटा दी गई है।"
+    },
+    "application": {
+      "title": "{{jobTitle}} के लिए आवेदन करें",
+      "subtitle": "कृपया अपना आवेदन जमा करने के लिए आवश्यक विवरण भरें",
+      "success": "आवेदन सफलतापूर्वक जमा किया गया!",
+      "error": "आवेदन जमा करने में त्रुटि",
+      "submitting": "जमा हो रहा है...",
+      "submit": "आवेदन जमा करें",
+      "fields": {
+        "experience": "संबंधित अनुभव (वर्ष)",
+        "experiencePlaceholder": "अनुभव के वर्ष दर्ज करें",
+        "availability": "उपलब्धता",
+        "availabilityPlaceholder": "जैसे तुरंत, अगले सोमवार से उपलब्ध"
+      },
+      "errors": {
+        "experienceRequired": "अनुभव आवश्यक है",
+        "experienceInvalid": "कृपया वैध वर्षों की संख्या दर्ज करें",
+        "availabilityRequired": "उपलब्धता आवश्यक है"
+      }
+    },
+    "browse": {
+      "title": "नौकरियां ब्राउज़ करें",
+      "subtitle": "अपने कौशल और प्राथमिकताओं से मेल खाने वाली नौकरियों को खोजें और आवेदन करें",
+      "filters": {
+        "searchPlaceholder": "शीर्षक, स्थान, कौशल से खोजें",
+        "minPayscalePlaceholder": "न्यूनतम वेतनमान (₹)",
+        "minExperiencePlaceholder": "न्यूनतम अनुभव (वर्ष)"
+      },
+      "errors": {
+        "loadFailed": "नौकरियां लोड करने में विफल। कृपया बाद में पुनः प्रयास करें।"
+      },
+      "noJobsFound": "कोई मेल खाने वाली नौकरी नहीं मिली।"
+    }
+  },
   "common": {
     "loading": "लोड हो रहा है...",
     "perDay": "दिन",
@@ -188,12 +275,16 @@
       "download": "डाउनलोड",
       "viewJob": "नौकरी देखें",
       "viewForm": "फॉर्म देखें",
-      "viewDetails": "विवरण देखें",
       "viewApplications": "आवेदन देखें",
+      "viewDetails": "विवरण देखें",
       "accept": "स्वीकार करें",
       "reject": "अस्वीकार करें",
       "apply": "आवेदन करें",
-      "sendOffer": "ऑफर भेजें"
+      "sendOffer": "ऑफर भेजें",
+      "cancel": "रद्द करें",
+      "edit": "संपादित करें",
+      "delete": "हटाएं",
+      "goBack": "वापस जाएं"
     },
     "error": {
       "default": "एक त्रुटि हुई। कृपया पुनः प्रयास करें।",

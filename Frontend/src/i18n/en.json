@@ -154,8 +154,92 @@
     "otpResentSuccess": "OTP resent successfully!",
     "otpResendFailed": "Failed to resend OTP. Please try again."
   },
-  "config":{
-    
+  "jobs": {
+    "posting": {
+      "title": "Create Job Posting",
+      "subtitle": "Fill out the details below to post a new job.",
+      "success": "Job post created successfully!",
+      "error": "Job posting creation failed. Please try again.",
+      "posting": "Posting...",
+      "postJob": "Post Job"
+    },
+    "update": {
+      "success": "Job post updated successfully!",
+      "error": "Update failed. Please try again.",
+      "updating": "Updating...",
+      "saveChanges": "Save Changes"
+    },
+    "delete": {
+      "success": "Job post deleted successfully!",
+      "error": "Deletion failed. Please try again.",
+      "deleting": "Deleting...",
+      "confirmTitle": "Confirm Deletion",
+      "confirmMessage": "Are you sure you want to delete this job post?"
+    },
+    "details": {
+      "title": "Job Details"
+    },
+    "fields": {
+      "jobTitle": "Job Title",
+      "jobTitlePlaceholder": "Enter job title",
+      "payscale": "Payscale",
+      "payscalePlaceholder": "Payscale",
+      "requiredSkill": "Required Skill",
+      "requiredSkillPlaceholder": "Skill required",
+      "experience": "Experience (years)",
+      "experiencePlaceholder": "Experience",
+      "noOfWorkers": "No. of Workers",
+      "noOfWorkersPlaceholder": "Number of workers",
+      "duration": "Duration (days)",
+      "durationPlaceholder": "Duration",
+      "location": "Location",
+      "locationPlaceholder": "Location",
+      "description": "Job Description",
+      "descriptionPlaceholder": "Describe the job responsibilities and requirements",
+      "title": "Title",
+      "years": "years",
+      "workers": "workers"
+    },
+    "actions": {
+      "applyNow": "Apply Now",
+      "viewDetails": "View Details"
+    },
+    "errors": {
+      "notFound": "Job post not found or unauthorized.",
+      "notFoundOrRemoved": "Job not found or has been removed."
+    },
+    "application": {
+      "title": "Apply for {{jobTitle}}",
+      "subtitle": "Please fill in the required details to submit your application",
+      "success": "Application submitted successfully!",
+      "error": "Error submitting application",
+      "submitting": "Submitting...",
+      "submit": "Submit Application",
+      "fields": {
+        "experience": "Relevant Experience (years)",
+        "experiencePlaceholder": "Enter years of experience",
+        "availability": "Availability",
+        "availabilityPlaceholder": "e.g. Immediate, Available from next Monday"
+      },
+      "errors": {
+        "experienceRequired": "Experience is required",
+        "experienceInvalid": "Please enter a valid number of years",
+        "availabilityRequired": "Availability is required"
+      }
+    },
+    "browse": {
+      "title": "Browse Jobs",
+      "subtitle": "Search and apply to jobs that match your skills and preferences",
+      "filters": {
+        "searchPlaceholder": "Search by title, location, skill",
+        "minPayscalePlaceholder": "Min Payscale (₹)",
+        "minExperiencePlaceholder": "Min Experience (years)"
+      },
+      "errors": {
+        "loadFailed": "Failed to load jobs. Please try again later."
+      },
+      "noJobsFound": "No matching jobs found."
+    }
   },
   "common": {
     "loading": "Loading...",
@@ -191,12 +275,16 @@
       "download": "Download",
       "viewJob": "View Job",
       "viewForm": "View Form",
-      "viewDetails": "View Details",
       "viewApplications": "View Applications",
+      "viewDetails": "View Details",
       "accept": "Accept",
       "reject": "Reject",
       "apply": "Apply",
-      "sendOffer": "Send Offer"
+      "sendOffer": "Send Offer",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "goBack": "Go Back"
     },
     "error": {
       "default": "An error occurred. Please try again.",
