@@ -1,24 +1,29 @@
 import { UserPlus, Briefcase, Star } from "lucide-react";
 import CardSimple from "./CardSimple";
+import { useTranslation } from "react-i18next";
 
 const HowItWorks = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="py-16 px-4 bg-white text-center">
-      <h2 className="text-[27px] font-bold mb-8">How It Works</h2>
+      <h2 className="text-[27px] font-bold mb-8">
+        {t("howItWorks.heading")}
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <CardSimple
-          name="Register & Complete Profile"
-          desc="Create your account and complete your profile to start connecting with opportunities."
+          name={t("howItWorks.steps.register.title")}
+          desc={t("howItWorks.steps.register.desc")}
           icon={UserPlus}
         />
         <CardSimple
-          name="Connect & Apply"
-          desc="Browse through available jobs or post your requirements. Connect with the right people."
+          name={t("howItWorks.steps.connect.title")}
+          desc={t("howItWorks.steps.connect.desc")}
           icon={Briefcase}
         />
         <CardSimple
-          name="Work & Get Rated"
-          desc="Complete jobs successfully and build your reputation through ratings and reviews."
+          name={t("howItWorks.steps.work.title")}
+          desc={t("howItWorks.steps.work.desc")}
           icon={Star}
         />
       </div>

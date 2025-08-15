@@ -1,55 +1,58 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { toast } from 'react-hot-toast';
-import Layout from '../Layout/Layout';
-import { useCreateVehicleMutation } from '@/redux/api/contractorApiSlice';
+"use client"
+
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { motion } from "framer-motion"
+import { toast } from "react-hot-toast"
+import { useTranslation } from "react-i18next"
+import Layout from "../Layout/Layout"
+import { useCreateVehicleMutation } from "@/redux/api/contractorApiSlice"
 
 const VehicleForm = () => {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
-    title: '',
-    type: '',
-    payscale: '',
-    brand: '',
-    quantity: '',
-    purchaseDate: '',
-    location: '',
-    organization: '',
-    otherDetails: ''
-  });
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
-  const [createVehicle, { isLoading }] = useCreateVehicleMutation();
+    title: "",
+    type: "",
+    payscale: "",
+    brand: "",
+    quantity: "",
+    purchaseDate: "",
+    location: "",
+    organization: "",
+    otherDetails: "",
+  })
+  const [error, setError] = useState("")
+  const navigate = useNavigate()
+  const [createVehicle, { isLoading }] = useCreateVehicleMutation()
 
-  const onChange = e =>
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  const onChange = (e) => setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
 
-  const onSubmit = async e => {
-    e.preventDefault();
-    setError('');
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    setError("")
 
     // Basic client‑side validation for required fields
-    const required = ['title','type','payscale','location'];
-    const missing = required.filter(key => !formData[key]);
+    const required = ["title", "type", "payscale", "location"]
+    const missing = required.filter((key) => !formData[key])
     if (missing.length) {
-      return setError(`Please fill: ${missing.join(', ')}`);
+      return setError(t("vehicles.posting.validationError", { fields: missing.join(", ") }))
     }
 
     try {
       const payload = {
         ...formData,
         payscale: Number(formData.payscale),
-        quantity: formData.quantity ? Number(formData.quantity) : undefined
-      };
-      const res = await createVehicle(payload).unwrap();
-      toast.success(res.message || 'Form submitted successfully!');
-      navigate('/dashboard'); // or wherever you want
+        quantity: formData.quantity ? Number(formData.quantity) : undefined,
+      }
+      const res = await createVehicle(payload).unwrap()
+      toast.success(res.message || t("vehicles.posting.success"))
+      navigate("/dashboard")
     } catch (err) {
-      const msg = err?.data?.message || 'Submission failed';
-      setError(msg);
-      toast.error(msg);
+      const msg = err?.data?.message || t("vehicles.posting.error")
+      setError(msg)
+      toast.error(msg)
     }
-  };
+  }
 
   return (
     <Layout>
@@ -60,9 +63,7 @@ const VehicleForm = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="w-full max-w-xl bg-white p-8 rounded-lg shadow-lg">
-          <h2 className="text-3xl font-extrabold text-black mb-6">
-            Post Vehicle / Instrument
-          </h2>
+          <h2 className="text-3xl font-extrabold text-black mb-6">{t("vehicles.posting.title")}</h2>
 
           {error && (
             <motion.div
@@ -78,20 +79,26 @@ const VehicleForm = () => {
           <form onSubmit={onSubmit} className="space-y-6">
             {/* Title */}
             <div className="md:flex">
-              <label className="md:w-1/3 font-bold">Title<span className="text-red-500">*</span></label>
+              <label className="md:w-1/3 font-bold">
+                {t("vehicles.fields.title")}
+                <span className="text-red-500">*</span>
+              </label>
               <input
                 name="title"
                 value={formData.title}
                 onChange={onChange}
                 required
                 className="md:w-2/3 ml-4 border rounded px-3 py-2 focus:border-blue-600"
-                placeholder="Brief title"
+                placeholder={t("vehicles.fields.titlePlaceholder")}
               />
             </div>
 
             {/* Type */}
             <div className="md:flex">
-              <label className="md:w-1/3 font-bold">Type<span className="text-red-500">*</span></label>
+              <label className="md:w-1/3 font-bold">
+                {t("vehicles.fields.type")}
+                <span className="text-red-500">*</span>
+              </label>
               <select
                 name="type"
                 value={formData.type}
@@ -99,15 +106,18 @@ const VehicleForm = () => {
                 required
                 className="md:w-2/3 ml-4 border rounded px-3 py-2 focus:border-blue-600"
               >
-                <option value="">Select...</option>
-                <option value="vehicle">Vehicle</option>
-                <option value="instrument">Instrument</option>
+                <option value="">{t("vehicles.fields.selectType")}</option>
+                <option value="vehicle">{t("vehicles.types.vehicle")}</option>
+                <option value="instrument">{t("vehicles.types.instrument")}</option>
               </select>
             </div>
 
             {/* Pay Scale */}
             <div className="md:flex">
-              <label className="md:w-1/3 font-bold">Pay Scale<span className="text-red-500">*</span></label>
+              <label className="md:w-1/3 font-bold">
+                {t("vehicles.fields.payscale")}
+                <span className="text-red-500">*</span>
+              </label>
               <input
                 name="payscale"
                 type="number"
@@ -116,25 +126,25 @@ const VehicleForm = () => {
                 onChange={onChange}
                 required
                 className="md:w-2/3 ml-4 border rounded px-3 py-2 focus:border-blue-600"
-                placeholder="e.g. 1500"
+                placeholder={t("vehicles.fields.payscalePlaceholder")}
               />
             </div>
 
             {/* Brand */}
             <div className="md:flex">
-              <label className="md:w-1/3 font-bold">Brand</label>
+              <label className="md:w-1/3 font-bold">{t("vehicles.fields.brand")}</label>
               <input
                 name="brand"
                 value={formData.brand}
                 onChange={onChange}
                 className="md:w-2/3 ml-4 border rounded px-3 py-2 focus:border-blue-600"
-                placeholder="e.g. Toyota"
+                placeholder={t("vehicles.fields.brandPlaceholder")}
               />
             </div>
 
             {/* Quantity */}
             <div className="md:flex">
-              <label className="md:w-1/3 font-bold">Quantity</label>
+              <label className="md:w-1/3 font-bold">{t("vehicles.fields.quantity")}</label>
               <input
                 name="quantity"
                 type="number"
@@ -142,13 +152,13 @@ const VehicleForm = () => {
                 value={formData.quantity}
                 onChange={onChange}
                 className="md:w-2/3 ml-4 border rounded px-3 py-2 focus:border-blue-600"
-                placeholder="1"
+                placeholder={t("vehicles.fields.quantityPlaceholder")}
               />
             </div>
 
             {/* Purchase Date */}
             <div className="md:flex">
-              <label className="md:w-1/3 font-bold">Purchase Date</label>
+              <label className="md:w-1/3 font-bold">{t("vehicles.fields.purchaseDate")}</label>
               <input
                 name="purchaseDate"
                 type="date"
@@ -160,39 +170,42 @@ const VehicleForm = () => {
 
             {/* Location */}
             <div className="md:flex">
-              <label className="md:w-1/3 font-bold">Location<span className="text-red-500">*</span></label>
+              <label className="md:w-1/3 font-bold">
+                {t("vehicles.fields.location")}
+                <span className="text-red-500">*</span>
+              </label>
               <input
                 name="location"
                 value={formData.location}
                 onChange={onChange}
                 required
                 className="md:w-2/3 ml-4 border rounded px-3 py-2 focus:border-blue-600"
-                placeholder="City / Area"
+                placeholder={t("vehicles.fields.locationPlaceholder")}
               />
             </div>
 
             {/* Organization */}
             <div className="md:flex">
-              <label className="md:w-1/3 font-bold">Organization</label>
+              <label className="md:w-1/3 font-bold">{t("vehicles.fields.organization")}</label>
               <input
                 name="organization"
                 value={formData.organization}
                 onChange={onChange}
                 className="md:w-2/3 ml-4 border rounded px-3 py-2 focus:border-blue-600"
-                placeholder="If different from your profile"
+                placeholder={t("vehicles.fields.organizationPlaceholder")}
               />
             </div>
 
             {/* Other Details */}
             <div className="md:flex">
-              <label className="md:w-1/3 font-bold">Other Details</label>
+              <label className="md:w-1/3 font-bold">{t("vehicles.fields.otherDetails")}</label>
               <textarea
                 name="otherDetails"
                 value={formData.otherDetails}
                 onChange={onChange}
                 rows="3"
                 className="md:w-2/3 ml-4 border rounded px-3 py-2 focus:border-blue-600"
-                placeholder="Any additional info"
+                placeholder={t("vehicles.fields.otherDetailsPlaceholder")}
               />
             </div>
 
@@ -205,14 +218,14 @@ const VehicleForm = () => {
                 whileTap={{ scale: 0.98 }}
                 className="bg-blue-600 text-white px-6 py-2 rounded shadow font-bold hover:bg-blue-700 transition"
               >
-                {isLoading ? 'Submitting...' : 'Submit'}
+                {isLoading ? t("vehicles.posting.posting") : t("vehicles.posting.submit")}
               </motion.button>
             </div>
           </form>
         </div>
       </motion.section>
     </Layout>
-  );
-};
+  )
+}
 
-export default VehicleForm;
+export default VehicleForm

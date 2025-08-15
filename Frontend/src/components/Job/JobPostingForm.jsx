@@ -1,50 +1,59 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { motion } from 'framer-motion';
-import { toast } from 'react-hot-toast';
-import Layout from '../Layout/Layout';
-import { useCreateJobMutation } from '@/redux/api/contractorApiSlice';
-const JobPostingForm = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [createJob, { isLoading }] = useCreateJobMutation();
-  const [formData, setFormData] = useState({
-    title: '',
-    payscale: '',
-    requiredSkill: '',
-    experienceRequired: '',
-    noOfWorkers: '',
-    duration: '',
-    location: '',
-    description: ''
-  });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+"use client"
 
-  const { title, payscale, requiredSkill, experienceRequired, noOfWorkers, duration, location, description } = formData;
+import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { motion } from "framer-motion"
+import { toast } from "react-hot-toast"
+import { useTranslation } from "react-i18next"
+import Layout from "../Layout/Layout"
+import { useCreateJobMutation } from "@/redux/api/contractorApiSlice"
+import FormField from "../common/FormField"
+import SubmitButton from "../common/SubmitButton"
+import ErrorMessage from "../common/ErrorMessage"
+
+const JobPostingForm = () => {
+  const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const [createJob, { isLoading }] = useCreateJobMutation()
+
+  const [formData, setFormData] = useState({
+    title: "",
+    payscale: "",
+    requiredSkill: "",
+    experienceRequired: "",
+    noOfWorkers: "",
+    duration: "",
+    location: "",
+    description: "",
+  })
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
+
+  const { title, payscale, requiredSkill, experienceRequired, noOfWorkers, duration, location, description } = formData
 
   const onChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
   const onSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
+    e.preventDefault()
+    setLoading(true)
+    setError("")
 
     try {
-      await createJob(formData).unwrap();
-      toast.success('Job post created successfully!');
-      navigate('/contractor/dashboard'); // Redirect after successful submission
+      await createJob(formData).unwrap()
+      toast.success(t("jobs.posting.success"))
+      navigate("/contractor/dashboard")
     } catch (err) {
-      const msg = err.response?.data?.message || 'Job posting creation failed. Please try again.';
-      setError(msg);
-      toast.error(msg);
+      const msg = err.response?.data?.message || t("jobs.posting.error")
+      setError(msg)
+      toast.error(msg)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <Layout>
@@ -56,208 +65,112 @@ const JobPostingForm = () => {
       >
         <div className="w-full max-w-lg md:max-w-4xl bg-white p-8 my-4 rounded-lg shadow-lg">
           <div className="mb-8">
-            <h2 className="text-3xl font-extrabold text-black mb-1">Create Job Posting</h2>
-            <p className="text-sm text-gray-600">
-              Fill out the details below to post a new job.
-            </p>
+            <h2 className="text-3xl font-extrabold text-black mb-1">{t("jobs.posting.title")}</h2>
+            <p className="text-sm text-gray-600">{t("jobs.posting.subtitle")}</p>
           </div>
 
-          {error && (
-            <motion.div
-              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              {error}
-            </motion.div>
-          )}
+          {error && <ErrorMessage message={error} />}
 
           <form onSubmit={onSubmit} className="w-full">
-            {/* Job Title */}
-            <div className="mb-6">
-              <label htmlFor="title" className="block text-black font-bold mb-2">
-                Job Title
-              </label>
-              <input
-                id="title"
-                name="title"
-                type="text"
-                placeholder="Enter job title"
-                required
-                value={title}
+            <FormField
+              label={t("jobs.fields.jobTitle")}
+              name="title"
+              type="text"
+              placeholder={t("jobs.fields.jobTitlePlaceholder")}
+              value={title}
+              onChange={onChange}
+              required
+            />
+
+            <div className="mb-6 grid grid-cols-2 gap-4">
+              <FormField
+                label={t("jobs.fields.payscale")}
+                name="payscale"
+                type="number"
+                placeholder={t("jobs.fields.payscalePlaceholder")}
+                value={payscale}
                 onChange={onChange}
-                className="w-full border border-gray-300 rounded py-2 px-4 text-gray-700 focus:outline-none focus:border-blue-600"
+                required
+              />
+              <FormField
+                label={t("jobs.fields.requiredSkill")}
+                name="requiredSkill"
+                type="text"
+                placeholder={t("jobs.fields.requiredSkillPlaceholder")}
+                value={requiredSkill}
+                onChange={onChange}
+                required
               />
             </div>
 
-            {/* Payscale & Required Skill */}
             <div className="mb-6 grid grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="payscale" className="block text-black font-bold mb-2">
-                  Payscale
-                </label>
-                <input
-                  id="payscale"
-                  name="payscale"
-                  type="number"
-                  placeholder="Payscale"
-                  required
-                  value={payscale}
-                  onChange={onChange}
-                  className="w-full border border-gray-300 rounded py-2 px-4 text-gray-700 focus:outline-none focus:border-blue-600"
-                />
-              </div>
-              <div>
-                <label htmlFor="requiredSkill" className="block text-black font-bold mb-2">
-                  Required Skill
-                </label>
-                <input
-                  id="requiredSkill"
-                  name="requiredSkill"
-                  type="text"
-                  placeholder="Skill required"
-                  required
-                  value={requiredSkill}
-                  onChange={onChange}
-                  className="w-full border border-gray-300 rounded py-2 px-4 text-gray-700 focus:outline-none focus:border-blue-600"
-                />
-              </div>
-            </div>
-
-            {/* Experience & Number of Workers */}
-            <div className="mb-6 grid grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="experienceRequired" className="block text-black font-bold mb-2">
-                  Experience (years)
-                </label>
-                <input
-                  id="experienceRequired"
-                  name="experienceRequired"
-                  type="number"
-                  placeholder="Experience"
-                  required
-                  value={experienceRequired}
-                  onChange={onChange}
-                  className="w-full border border-gray-300 rounded py-2 px-4 text-gray-700 focus:outline-none focus:border-blue-600"
-                />
-              </div>
-              <div>
-                <label htmlFor="noOfWorkers" className="block text-black font-bold mb-2">
-                  No. of Workers
-                </label>
-                <input
-                  id="noOfWorkers"
-                  name="noOfWorkers"
-                  type="number"
-                  placeholder="Number of workers"
-                  required
-                  value={noOfWorkers}
-                  onChange={onChange}
-                  className="w-full border border-gray-300 rounded py-2 px-4 text-gray-700 focus:outline-none focus:border-blue-600"
-                />
-              </div>
-            </div>
-
-            {/* Duration & Location */}
-            <div className="mb-6 grid grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="duration" className="block text-black font-bold mb-2">
-                  Duration (days)
-                </label>
-                <input
-                  id="duration"
-                  name="duration"
-                  type="number"
-                  placeholder="Duration"
-                  required
-                  value={duration}
-                  onChange={onChange}
-                  className="w-full border border-gray-300 rounded py-2 px-4 text-gray-700 focus:outline-none focus:border-blue-600"
-                />
-              </div>
-              <div>
-                <label htmlFor="location" className="block text-black font-bold mb-2">
-                  Location
-                </label>
-                <input
-                  id="location"
-                  name="location"
-                  type="text"
-                  placeholder="Location"
-                  required
-                  value={location}
-                  onChange={onChange}
-                  className="w-full border border-gray-300 rounded py-2 px-4 text-gray-700 focus:outline-none focus:border-blue-600"
-                />
-              </div>
-            </div>
-
-            {/* Job Description */}
-            <div className="mb-6">
-              <label htmlFor="description" className="block text-black font-bold mb-2">
-                Job Description
-              </label>
-              <textarea
-                id="description"
-                name="description"
-                placeholder="Describe the job responsibilities and requirements"
-                required
-                rows="4"
-                value={description}
+              <FormField
+                label={t("jobs.fields.experience")}
+                name="experienceRequired"
+                type="number"
+                placeholder={t("jobs.fields.experiencePlaceholder")}
+                value={experienceRequired}
                 onChange={onChange}
-                className="w-full border border-gray-300 rounded py-2 px-4 text-gray-700 focus:outline-none focus:border-blue-600"
-              ></textarea>
+                required
+              />
+              <FormField
+                label={t("jobs.fields.noOfWorkers")}
+                name="noOfWorkers"
+                type="number"
+                placeholder={t("jobs.fields.noOfWorkersPlaceholder")}
+                value={noOfWorkers}
+                onChange={onChange}
+                required
+              />
             </div>
+
+            <div className="mb-6 grid grid-cols-2 gap-4">
+              <FormField
+                label={t("jobs.fields.duration")}
+                name="duration"
+                type="number"
+                placeholder={t("jobs.fields.durationPlaceholder")}
+                value={duration}
+                onChange={onChange}
+                required
+              />
+              <FormField
+                label={t("jobs.fields.location")}
+                name="location"
+                type="text"
+                placeholder={t("jobs.fields.locationPlaceholder")}
+                value={location}
+                onChange={onChange}
+                required
+              />
+            </div>
+
+            <FormField
+              label={t("jobs.fields.description")}
+              name="description"
+              type="textarea"
+              placeholder={t("jobs.fields.descriptionPlaceholder")}
+              value={description}
+              onChange={onChange}
+              rows={4}
+              required
+            />
 
             <div className="flex justify-end">
-              <Link
-                to="/contractor/dashboard"
-                className="text-lg mt-2 text-blue-600 hover:text-red-600 mr-4"
-              >
-                Cancel
+              <Link to="/contractor/dashboard" className="text-lg mt-2 text-blue-600 hover:text-red-600 mr-4">
+                {t("common.actions.cancel")}
               </Link>
-              <motion.button
-                type="submit"
-                disabled={loading}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="border border-blue-600 text-blue-600 px-5 py-2 rounded font-bold hover:bg-blue-600 hover:text-white transition"
-              >
-                {loading ? (
-                  <span className="flex items-center">
-                    <svg
-                      className="animate-spin h-5 w-5 mr-2 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8v8H4z"
-                      ></path>
-                    </svg>
-                    Posting...
-                  </span>
-                ) : (
-                  'Post Job'
-                )}
-              </motion.button>
+              <SubmitButton
+                isLoading={loading}
+                loadingText={t("jobs.posting.posting")}
+                text={t("jobs.posting.postJob")}
+              />
             </div>
           </form>
         </div>
       </motion.section>
     </Layout>
-  );
-};
+  )
+}
 
-export default JobPostingForm;
+export default JobPostingForm

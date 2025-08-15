@@ -2,19 +2,26 @@
 
 import { useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import {
-  useProcessVehicleApplicationMutation,
-} from "@/redux/api/contractorApiSlice"
-import { toast } from "react-hot-toast"
-import { useGetVehicleApplicationByIdQuery } from "@/redux/api/vehicleApiSlice"
 import { useSelector } from "react-redux"
+import { useTranslation } from "react-i18next"
+import { toast } from "react-hot-toast"
+import { useProcessVehicleApplicationMutation } from "@/redux/api/contractorApiSlice"
+import { useGetVehicleApplicationByIdQuery } from "@/redux/api/vehicleApiSlice"
+import LoadingSpinner from "../common/LoadingSpinner"
+import ErrorMessage from "../common/ErrorMessage"
+import FormField from "../common/FormField"
+import ActionButton from "../common/ActionButton"
+
 function SingleVehicleApplication() {
+  const { t } = useTranslation()
   const { applicationId } = useParams()
   const navigate = useNavigate()
-  const {data,isLoading:isLoading,error} = useGetVehicleApplicationByIdQuery(applicationId)
+
+  const { data, isLoading, error } = useGetVehicleApplicationByIdQuery(applicationId)
   const application = data?.application || {}
   const applicant = application.applicantId || {}
-  const {userType} = useSelector((state) => state.auth)
+
+  const { userType } = useSelector((state) => state.auth)
   const [processVehicleApplication] = useProcessVehicleApplicationMutation()
   const [feedback, setFeedback] = useState("")
 
@@ -27,61 +34,81 @@ function SingleVehicleApplication() {
         data: { action, feedback },
       }).unwrap()
 
-      toast.success(`Application ${action}ed successfully!`)
+      toast.success(t("applications.actionSuccess", { action: t(`common.${action}`) }))
       navigate("/vehicle/applications")
     } catch (err) {
       console.error("Processing error:", err)
-      toast.error("Failed to process application.")
+      toast.error(t("applications.actionError"))
     }
   }
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-      </div>
-    )
-  }
-
-  if (error) {
-    return <div className="text-red-500 text-center">Error: {error.message}</div>
-  }
+  if (isLoading) return <LoadingSpinner />
+  if (error) return <ErrorMessage error={error.message} />
 
   return (
     <div className="max-w-4xl mx-auto p-6 mt-20 bg-white shadow-lg rounded-2xl">
-      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Vehicle Application</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">{t("applications.vehicleApplication")}</h1>
 
       <section className="grid md:grid-cols-2 gap-6">
         <div>
-          <h2 className="text-xl font-semibold mb-2 text-gray-700">Applicant Information</h2>
-          <p><strong>Name:</strong> {applicant.name}</p>
-          <p><strong>Email:</strong> {applicant.email}</p>
-          <p><strong>Phone:</strong> {applicant.phone}</p>
-          <p><strong>Status:</strong> {application.status}</p>
-          <p><strong>Applied At:</strong> {new Date(application.appliedAt).toLocaleString()}</p>
+          <h2 className="text-xl font-semibold mb-2 text-gray-700">{t("applications.applicantInformation")}</h2>
+          <div className="space-y-2">
+            <p>
+              <strong>{t("common.name")}:</strong> {applicant.name}
+            </p>
+            <p>
+              <strong>{t("common.email")}:</strong> {applicant.email}
+            </p>
+            <p>
+              <strong>{t("common.phone")}:</strong> {applicant.phone}
+            </p>
+            <p>
+              <strong>{t("common.status")}:</strong> {t(`common.${application.status}`)}
+            </p>
+            <p>
+              <strong>{t("applications.appliedAt")}:</strong> {new Date(application.appliedAt).toLocaleString()}
+            </p>
+          </div>
         </div>
 
         <div>
-          <h2 className="text-xl font-semibold mb-2 text-gray-700">Vehicle Details</h2>
-          <p><strong>Type:</strong> {application.type}</p>
-          <p><strong>Brand:</strong> {application.brand}</p>
-          <p><strong>Quantity:</strong> {application.quantity}</p>
-          <p><strong>Location:</strong> {application.location}</p>
-          <p><strong>Organization:</strong> {application.vehicleFormId?.organization}</p>
-          <p><strong>Purchase Date:</strong> {new Date(application.purchaseDate).toLocaleDateString()}</p>
-          <p><strong>Other Details:</strong> {application.vehicleFormId?.otherDetails}</p>
+          <h2 className="text-xl font-semibold mb-2 text-gray-700">{t("applications.vehicleDetails")}</h2>
+          <div className="space-y-2">
+            <p>
+              <strong>{t("applications.type")}:</strong> {application.type}
+            </p>
+            <p>
+              <strong>{t("applications.brand")}:</strong> {application.brand}
+            </p>
+            <p>
+              <strong>{t("applications.quantity")}:</strong> {application.quantity}
+            </p>
+            <p>
+              <strong>{t("common.location")}:</strong> {application.location}
+            </p>
+            <p>
+              <strong>{t("applications.organization")}:</strong> {application.vehicleFormId?.organization}
+            </p>
+            <p>
+              <strong>{t("applications.purchaseDate")}:</strong>{" "}
+              {new Date(application.purchaseDate).toLocaleDateString()}
+            </p>
+            <p>
+              <strong>{t("applications.otherDetails")}:</strong> {application.vehicleFormId?.otherDetails}
+            </p>
+          </div>
         </div>
       </section>
 
       {application.pictures && application.pictures.length > 0 && (
         <div className="mt-8">
-          <h2 className="text-xl font-semibold mb-4 text-gray-700">Vehicle Pictures</h2>
+          <h2 className="text-xl font-semibold mb-4 text-gray-700">{t("applications.vehiclePictures")}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {application.pictures.map((pic, index) => (
               <img
                 key={index}
-                src={pic}
-                alt={`Vehicle ${index + 1}`}
+                src={pic || "/placeholder.svg"}
+                alt={t("applications.vehicleImageAlt", { number: index + 1 })}
                 className="w-full h-32 object-cover rounded-md shadow-sm hover:scale-105 transition"
               />
             ))}
@@ -89,47 +116,40 @@ function SingleVehicleApplication() {
         </div>
       )}
 
-      {userType==='Contractor' && application.status === "pending" && (
+      {userType === "Contractor" && application.status === "pending" && (
         <div className="mt-6">
-          <textarea
+          <FormField
+            label={t("applications.feedbackForRejection")}
+            name="feedback"
+            type="textarea"
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
-            placeholder="Feedback for rejection (optional)"
-            className="w-full p-3 border border-gray-300 rounded-md"
-            rows={4}
-          ></textarea>
+            placeholder={t("applications.feedbackOptional")}
+          />
         </div>
       )}
-     {userType==='Owner' && application.status === 'rejected' && (
+
+      {userType === "Owner" && application.status === "rejected" && (
         <div className="mt-6">
-          <h2 className="text-xl font-semibold mb-2 text-gray-700">Feedback</h2>
-          <p className="text-gray-600">{application.feedback || "No feedback provided."}</p>
+          <h2 className="text-xl font-semibold mb-2 text-gray-700">{t("applications.feedback")}</h2>
+          <p className="text-gray-600">{application.feedback || t("applications.noFeedbackProvided")}</p>
         </div>
-        
-     )}
+      )}
+
       <div className="mt-8 flex flex-wrap gap-4">
-        {userType==='Contractor' && application.status === "pending" && (
+        {userType === "Contractor" && application.status === "pending" && (
           <>
-            <button
-              onClick={() => handleAction("accept")}
-              className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700"
-            >
-              Accept
-            </button>
-            <button
-              onClick={() => handleAction("reject")}
-              className="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700"
-            >
-              Reject
-            </button>
+            <ActionButton variant="success" onClick={() => handleAction("accept")}>
+              {t("common.accept")}
+            </ActionButton>
+            <ActionButton variant="danger" onClick={() => handleAction("reject")}>
+              {t("common.reject")}
+            </ActionButton>
           </>
         )}
-        <button
-          onClick={() => navigate(-1)}
-          className="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600"
-        >
-          Back
-        </button>
+        <ActionButton variant="secondary" onClick={() => navigate(-1)}>
+          {t("common.back")}
+        </ActionButton>
       </div>
     </div>
   )
