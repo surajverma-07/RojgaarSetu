@@ -1,108 +1,108 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { toast } from 'react-hot-toast';
-import {
-  useUpdateVehicleMutation,
-  useDeleteVehicleMutation,
-} from '@/redux/api/contractorApiSlice';
-import { useGetVehicleByIdQuery } from '@/redux/api/vehicleApiSlice';
-import { useSelector } from 'react-redux';
-import Layout from '../Layout/Layout';
-import DeleteConfirmationModal from '../DeleteConfirmationModal';
+"use client"
+
+import { useState, useEffect } from "react"
+import { useParams, useNavigate, Link } from "react-router-dom"
+import { motion } from "framer-motion"
+import { toast } from "react-hot-toast"
+import { useTranslation } from "react-i18next"
+import { useUpdateVehicleMutation, useDeleteVehicleMutation } from "@/redux/api/contractorApiSlice"
+import { useGetVehicleByIdQuery } from "@/redux/api/vehicleApiSlice"
+import { useSelector } from "react-redux"
+import Layout from "../Layout/Layout"
+import DeleteConfirmationModal from "../DeleteConfirmationModal"
 
 const SingleVehiclePost = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
+  const { t } = useTranslation()
+  const { id } = useParams()
+  const navigate = useNavigate()
 
-  const { data: vehicleData, isLoading, isError } = useGetVehicleByIdQuery(id);
-  const [updateVehicle, { isLoading: isUpdating }] = useUpdateVehicleMutation();
-  const [deleteVehicle, { isLoading: isDeleting }] = useDeleteVehicleMutation();
+  const { data: vehicleData, isLoading, isError } = useGetVehicleByIdQuery(id)
+  const [updateVehicle, { isLoading: isUpdating }] = useUpdateVehicleMutation()
+  const [deleteVehicle, { isLoading: isDeleting }] = useDeleteVehicleMutation()
 
-  const { user, userType } = useSelector((state) => state.auth);
+  const { user, userType } = useSelector((state) => state.auth)
 
-  const [isEditing, setIsEditing] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [isEditing, setIsEditing] = useState(false)
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
 
   const [formData, setFormData] = useState({
-    title: '',
-    type: '',
-    payscale: '',
-    brand: '',
-    quantity: '',
-    purchaseDate: '',
-    location: '',
-    organization: '',
-    otherDetails: '',
-  });
+    title: "",
+    type: "",
+    payscale: "",
+    brand: "",
+    quantity: "",
+    purchaseDate: "",
+    location: "",
+    organization: "",
+    otherDetails: "",
+  })
 
   useEffect(() => {
     if (vehicleData?.vehicleForm) {
-      const v = vehicleData.vehicleForm;
+      const v = vehicleData.vehicleForm
       setFormData({
-        title: v.title || '',
-        type: v.type || '',
-        payscale: v.payscale || '',
-        brand: v.brand || '',
-        quantity: v.quantity || '',
-        purchaseDate: v.purchaseDate?.split('T')[0] || '',
-        location: v.location || '',
-        organization: v.organization || '',
-        otherDetails: v.otherDetails || '',
-      });
+        title: v.title || "",
+        type: v.type || "",
+        payscale: v.payscale || "",
+        brand: v.brand || "",
+        quantity: v.quantity || "",
+        purchaseDate: v.purchaseDate?.split("T")[0] || "",
+        location: v.location || "",
+        organization: v.organization || "",
+        otherDetails: v.otherDetails || "",
+      })
     }
-  }, [vehicleData]);
+  }, [vehicleData])
 
-  const handleChange = (e) =>
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  const handleChange = (e) => setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
 
-  const handleEdit = () => setIsEditing(true);
+  const handleEdit = () => setIsEditing(true)
 
   const handleCancel = () => {
     if (vehicleData?.vehicleForm) {
-      const v = vehicleData.vehicleForm;
+      const v = vehicleData.vehicleForm
       setFormData({
         title: v.title,
         type: v.type,
         payscale: v.payscale,
         brand: v.brand,
         quantity: v.quantity,
-        purchaseDate: v.purchaseDate?.split('T')[0],
+        purchaseDate: v.purchaseDate?.split("T")[0],
         location: v.location,
         organization: v.organization,
         otherDetails: v.otherDetails,
-      });
+      })
     }
-    setIsEditing(false);
-  };
+    setIsEditing(false)
+  }
 
   const handleUpdate = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
-      await updateVehicle({ id, ...formData }).unwrap();
-      toast.success('Vehicle post updated successfully!');
-      setIsEditing(false);
+      await updateVehicle({ id, ...formData }).unwrap()
+      toast.success(t("vehicles.update.success"))
+      setIsEditing(false)
     } catch (err) {
-      toast.error(err?.data?.message || 'Update failed. Please try again.');
+      toast.error(err?.data?.message || t("vehicles.update.error"))
     }
-  };
+  }
 
   const confirmDelete = async () => {
     try {
-      await deleteVehicle(id).unwrap();
-      toast.success('Vehicle post deleted successfully!');
-      navigate('/contractor/dashboard');
+      await deleteVehicle(id).unwrap()
+      toast.success(t("vehicles.delete.success"))
+      navigate("/contractor/dashboard")
     } catch (err) {
-      toast.error(err?.data?.message || 'Deletion failed. Please try again.');
+      toast.error(err?.data?.message || t("vehicles.delete.error"))
     }
-  };
+  }
 
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-50">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
       </div>
-    );
+    )
   }
 
   if (isError || !vehicleData?.vehicleForm) {
@@ -110,20 +110,17 @@ const SingleVehiclePost = () => {
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-3xl mx-auto sm:px-6 lg:px-8">
           <div className="bg-white shadow rounded-lg p-6 text-center text-red-600">
-            <p>Vehicle post not found or unauthorized.</p>
-            <Link
-              to="/contractor/dashboard"
-              className="text-blue-600 hover:text-blue-500 mt-4 inline-block"
-            >
-              Go Back
+            <p>{t("vehicles.errors.notFound")}</p>
+            <Link to="/contractor/dashboard" className="text-blue-600 hover:text-blue-500 mt-4 inline-block">
+              {t("common.actions.goBack")}
             </Link>
           </div>
         </div>
       </div>
-    );
+    )
   }
 
-  const vehicle = vehicleData.vehicleForm;
+  const vehicle = vehicleData.vehicleForm
 
   return (
     <Layout>
@@ -143,31 +140,31 @@ const SingleVehiclePost = () => {
       >
         <div className="w-full max-w-2xl bg-white p-8 rounded-lg shadow-lg">
           <div className="mb-8 flex justify-between items-center">
-            <h2 className="text-3xl font-extrabold text-black">Vehicle Details</h2>
+            <h2 className="text-3xl font-extrabold text-black">{t("vehicles.details.title")}</h2>
             {!isEditing && (
               <div className="space-x-2">
-                {userType === 'Contractor' && (
+                {userType === "Contractor" && (
                   <>
                     <button
                       onClick={handleEdit}
                       className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
                     >
-                      Edit
+                      {t("common.actions.edit")}
                     </button>
                     <button
                       onClick={() => setShowDeleteModal(true)}
                       className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
                     >
-                      Delete
+                      {t("common.actions.delete")}
                     </button>
                   </>
                 )}
-                {userType === 'Owner' && (
+                {userType === "Owner" && (
                   <button
                     onClick={() => navigate(`/vehicle/apply/${vehicle._id}`)}
                     className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
                   >
-                    Apply
+                    {t("common.actions.apply")}
                   </button>
                 )}
               </div>
@@ -176,14 +173,16 @@ const SingleVehiclePost = () => {
 
           {isEditing ? (
             <form onSubmit={handleUpdate} className="space-y-6">
-              {[{ name: 'title', label: 'Vehicle Title' },
-                { name: 'type', label: 'Type' },
-                { name: 'payscale', label: 'Payscale (₹/day)', type: 'number' },
-                { name: 'brand', label: 'Brand' },
-                { name: 'quantity', label: 'Quantity', type: 'number' },
-                { name: 'purchaseDate', label: 'Purchase Date', type: 'date' },
-                { name: 'location', label: 'Location' },
-                { name: 'organization', label: 'Organization' }].map(({ name, label, type = 'text' }) => (
+              {[
+                { name: "title", label: t("vehicles.fields.title") },
+                { name: "type", label: t("vehicles.fields.type") },
+                { name: "payscale", label: t("vehicles.fields.payscale"), type: "number" },
+                { name: "brand", label: t("vehicles.fields.brand") },
+                { name: "quantity", label: t("vehicles.fields.quantity"), type: "number" },
+                { name: "purchaseDate", label: t("vehicles.fields.purchaseDate"), type: "date" },
+                { name: "location", label: t("vehicles.fields.location") },
+                { name: "organization", label: t("vehicles.fields.organization") },
+              ].map(({ name, label, type = "text" }) => (
                 <div key={name}>
                   <label htmlFor={name} className="block text-black font-bold mb-2">
                     {label}
@@ -201,7 +200,7 @@ const SingleVehiclePost = () => {
               ))}
               <div>
                 <label htmlFor="otherDetails" className="block text-black font-bold mb-2">
-                  Other Details
+                  {t("vehicles.fields.otherDetails")}
                 </label>
                 <textarea
                   id="otherDetails"
@@ -214,34 +213,48 @@ const SingleVehiclePost = () => {
                 />
               </div>
               <div className="flex justify-end space-x-4">
-                <button
-                  type="button"
-                  onClick={handleCancel}
-                  className="px-5 py-2 border rounded"
-                >
-                  Cancel
+                <button type="button" onClick={handleCancel} className="px-5 py-2 border rounded">
+                  {t("common.actions.cancel")}
                 </button>
                 <button
                   type="submit"
                   disabled={isUpdating}
                   className="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition disabled:opacity-50"
                 >
-                  {isUpdating ? 'Updating...' : 'Save Changes'}
+                  {isUpdating ? t("vehicles.update.updating") : t("vehicles.update.saveChanges")}
                 </button>
               </div>
             </form>
           ) : (
             <div className="space-y-4">
-              <p><span className="font-bold">Title:</span> {vehicle.title}</p>
-              <p><span className="font-bold">Type:</span> {vehicle.type}</p>
-              <p><span className="font-bold">Payscale:</span> ₹{vehicle.payscale}/day</p>
-              <p><span className="font-bold">Brand:</span> {vehicle.brand}</p>
-              <p><span className="font-bold">Quantity:</span> {vehicle.quantity}</p>
-              <p><span className="font-bold">Purchase Date:</span> {vehicle.purchaseDate?.split('T')[0]}</p>
-              <p><span className="font-bold">Location:</span> {vehicle.location}</p>
-              <p><span className="font-bold">Organization:</span> {vehicle.organization}</p>
+              <p>
+                <span className="font-bold">{t("vehicles.fields.title")}:</span> {vehicle.title}
+              </p>
+              <p>
+                <span className="font-bold">{t("vehicles.fields.type")}:</span> {vehicle.type}
+              </p>
+              <p>
+                <span className="font-bold">{t("vehicles.fields.payscale")}:</span> ₹{vehicle.payscale}/
+                {t("common.day")}
+              </p>
+              <p>
+                <span className="font-bold">{t("vehicles.fields.brand")}:</span> {vehicle.brand}
+              </p>
+              <p>
+                <span className="font-bold">{t("vehicles.fields.quantity")}:</span> {vehicle.quantity}
+              </p>
+              <p>
+                <span className="font-bold">{t("vehicles.fields.purchaseDate")}:</span>{" "}
+                {vehicle.purchaseDate?.split("T")[0]}
+              </p>
+              <p>
+                <span className="font-bold">{t("vehicles.fields.location")}:</span> {vehicle.location}
+              </p>
+              <p>
+                <span className="font-bold">{t("vehicles.fields.organization")}:</span> {vehicle.organization}
+              </p>
               <div>
-                <span className="font-bold">Other Details:</span>
+                <span className="font-bold">{t("vehicles.fields.otherDetails")}:</span>
                 <p className="mt-1">{vehicle.otherDetails}</p>
               </div>
             </div>
@@ -249,7 +262,7 @@ const SingleVehiclePost = () => {
         </div>
       </motion.section>
     </Layout>
-  );
-};
+  )
+}
 
-export default SingleVehiclePost;
+export default SingleVehiclePost
