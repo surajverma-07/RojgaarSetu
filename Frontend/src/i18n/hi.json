@@ -241,6 +241,100 @@
       "noJobsFound": "कोई मेल खाने वाली नौकरी नहीं मिली।"
     }
   },
+  "vehicles": {
+    "posting": {
+      "title": "वाहन / उपकरण पोस्ट करें",
+      "subtitle": "अपने वाहन या उपकरण को किराये पर देने के लिए नीचे विवरण भरें।",
+      "success": "वाहन पोस्ट सफलतापूर्वक बनाई गई!",
+      "error": "वाहन पोस्टिंग बनाना विफल। कृपया पुनः प्रयास करें।",
+      "posting": "जमा हो रहा है...",
+      "submit": "जमा करें",
+      "validationError": "कृपया भरें: {{fields}}"
+    },
+    "update": {
+      "success": "वाहन पोस्ट सफलतापूर्वक अपडेट की गई!",
+      "error": "अपडेट विफल। कृपया पुनः प्रयास करें।",
+      "updating": "अपडेट हो रहा है...",
+      "saveChanges": "परिवर्तन सहेजें"
+    },
+    "delete": {
+      "success": "वाहन पोस्ट सफलतापूर्वक हटाई गई!",
+      "error": "हटाना विफल। कृपया पुनः प्रयास करें।",
+      "deleting": "हटाया जा रहा है...",
+      "confirmTitle": "हटाने की पुष्टि करें",
+      "confirmMessage": "क्या आप वाकई इस वाहन पोस्ट को हटाना चाहते हैं?"
+    },
+    "details": {
+      "title": "वाहन विवरण"
+    },
+    "fields": {
+      "title": "शीर्षक",
+      "titlePlaceholder": "संक्षिप्त शीर्षक",
+      "type": "प्रकार",
+      "selectType": "चुनें...",
+      "payscale": "वेतनमान",
+      "payscalePlaceholder": "जैसे 1500",
+      "brand": "ब्रांड",
+      "brandPlaceholder": "जैसे टोयोटा",
+      "quantity": "मात्रा",
+      "quantityPlaceholder": "1",
+      "purchaseDate": "खरीद तारीख",
+      "location": "स्थान",
+      "locationPlaceholder": "शहर / क्षेत्र",
+      "organization": "संगठन",
+      "organizationPlaceholder": "यदि आपकी प्रोफ़ाइल से अलग है",
+      "otherDetails": "अन्य विवरण",
+      "otherDetailsPlaceholder": "कोई अतिरिक्त जानकारी"
+    },
+    "types": {
+      "vehicle": "वाहन",
+      "instrument": "उपकरण"
+    },
+    "browse": {
+      "title": "उपलब्ध वाहन",
+      "subtitle": "अपनी परियोजना आवश्यकताओं से मेल खाने वाले वाहनों को खोजें और किराये पर लें",
+      "refreshVehicles": "वाहन रीफ्रेश करें",
+      "filters": {
+        "searchPlaceholder": "शीर्षक, ब्रांड, स्थान से खोजें",
+        "minPricePlaceholder": "न्यूनतम मूल्य (₹/दिन)"
+      },
+      "errors": {
+        "loadFailed": "वाहन लोड करने में विफल। कृपया बाद में पुनः प्रयास करें।"
+      },
+      "noVehiclesFound": "कोई मेल खाने वाले वाहन नहीं मिले।"
+    },
+    "application": {
+      "title": "{{vehicleTitle}} के लिए आवेदन करें",
+      "subtitle": "कृपया अपना आवेदन जमा करने के लिए आवश्यक विवरण भरें",
+      "success": "आवेदन सफलतापूर्वक जमा किया गया!",
+      "error": "आवेदन जमा करने में त्रुटि",
+      "submitting": "जमा हो रहा है…",
+      "submit": "आवेदन जमा करें",
+      "backToDetails": "विवरण पर वापस जाएं",
+      "fields": {
+        "ownerDetails": "आपका विवरण",
+        "ownerDetailsPlaceholder": "अपने अनुभव और आवश्यकताओं का वर्णन करें",
+        "uploadImages": "वाहन की तस्वीरें अपलोड करें"
+      },
+      "imagePreview": "वाहन {{number}}"
+    },
+    "errors": {
+      "notFound": "वाहन पोस्ट नहीं मिली या अनधिकृत।"
+    }
+  },
+  "recommendations": {
+    "titles": {
+      "jobRecommendations": "नौकरी सिफारिशें",
+      "workerRecommendations": "कामगार सिफारिशें",
+      "vehicleRecommendations": "वाहन सिफारिशें",
+      "recommendations": "सिफारिशें"
+    },
+    "subtitle": "आपकी प्रोफ़ाइल और प्राथमिकताओं के आधार पर",
+    "noRecommendations": "कोई सिफारिशें नहीं मिलीं। बेहतर मैच पाने के लिए अपनी प्रोफ़ाइल अपडेट करें।",
+    "errors": {
+      "loadFailed": "सिफारिशें लोड करने में विफल। कृपया बाद में पुनः प्रयास करें।"
+    }
+  },
   "common": {
     "loading": "लोड हो रहा है...",
     "perDay": "दिन",
@@ -544,5 +638,101 @@
       "vehicleApplicationRejected": "वाहन आवेदन अस्वीकार किया गया",
       "actionFailed": "कार्य विफल हुआ"
     }
+  },
+  "profile": {
+    "contractor": {
+      "title": "ठेकेदार प्रोफ़ाइल"
+    },
+    "worker": {
+      "title": "मजदूर प्रोफ़ाइल"
+    },
+    "owner": {
+      "title": "वाहन/उपकरण मालिक प्रोफ़ाइल"
+    },
+    "editProfile": "प्रोफ़ाइल संपादित करें",
+    "viewMode": "देखने का मोड",
+    "saveProfile": "प्रोफ़ाइल सहेजें",
+    "saveChanges": "परिवर्तन सहेजें",
+    "saving": "सहेजा जा रहा है...",
+    "profileImageAlt": "प्रोफ़ाइल",
+    "changePhoto": "फोटो बदलें",
+    "uploadPhoto": "फोटो अपलोड करें",
+    "imageUploadSuccess": "तस्वीर सफलतापूर्वक अपलोड की गई!",
+    "imageUploadError": "तस्वीर अपलोड करने में त्रुटि। कृपया पुनः प्रयास करें।",
+    "resumeUploadSuccess": "रिज्यूमे सफलतापूर्वक अपलोड किया गया!",
+    "resumeUploadError": "रिज्यूमे अपलोड करने में त्रुटि। कृपया पुनः प्रयास करें।",
+    "updateSuccess": "प्रोफ़ाइल सफलतापूर्वक अपडेट की गई!",
+    "updateError": "प्रोफ़ाइल अपडेट करने में त्रुटि। कृपया पुनः प्रयास करें।",
+    "errorLoading": "प्रोफ़ाइल लोड करने में त्रुटि",
+    "completion": {
+      "low": "आपकी प्रोफ़ाइल पर ध्यान देने की जरूरत है! दृश्यता बढ़ाने के लिए इसे पूरा करें।",
+      "medium": "आप प्रगति कर रहे हैं! अपनी प्रोफ़ाइल में विवरण जोड़ते रहें।",
+      "high": "आपकी प्रोफ़ाइल अच्छी लग रही है! पूरा करने के लिए बस कुछ और विवरण।",
+      "complete": "बेहतरीन! आपकी प्रोफ़ाइल पूरी है और अधिक ग्राहकों को आकर्षित करेगी।",
+      "completeWorker": "बेहतरीन! आपकी प्रोफ़ाइल पूरी है और अधिक नियोक्ताओं को आकर्षित करेगी।"
+    },
+    "fields": {
+      "fullName": "पूरा नाम",
+      "email": "ईमेल",
+      "phone": "फोन नंबर",
+      "location": "स्थान",
+      "role": "भूमिका",
+      "organization": "संगठन",
+      "organizationName": "संगठन का नाम",
+      "workProfile": "कार्य प्रोफ़ाइल",
+      "workProfilePlaceholder": "अपनी कार्य प्रोफ़ाइल का वर्णन करें",
+      "currentStatus": "वर्तमान स्थिति",
+      "lookingFor": "की तलाश में",
+      "lookingForPlaceholder": "जैसे निर्माण, ड्राइविंग, प्लंबिंग",
+      "pastExperience": "पिछला अनुभव",
+      "pastExperiencePlaceholder": "अपने पिछले कार्य अनुभव का वर्णन करें",
+      "expectedSalary": "अपेक्षित वेतन (₹/दिन)"
+    },
+    "status": {
+      "unemployed": "बेरोजगार",
+      "working": "कार्यरत"
+    },
+    "availableForWork": "काम के लिए उपलब्ध",
+    "currentlyEmployed": "वर्तमान में नियोजित",
+    "memberSince": "जनवरी 2023 से सदस्य",
+    "notSpecified": "निर्दिष्ट नहीं",
+    "noWorkProfile": "कोई कार्य प्रोफ़ाइल सूचीबद्ध नहीं",
+    "noExperience": "कोई अनुभव सूचीबद्ध नहीं",
+    "tabs": {
+      "profile": "प्रोफ़ाइल",
+      "documents": "दस्तावेज़"
+    },
+    "documents": {
+      "resume": "रिज्यूमे",
+      "resumeFile": "रिज्यूमे.pdf",
+      "uploadedOn": "15 जनवरी, 2023 को अपलोड किया गया",
+      "view": "देखें",
+      "change": "बदलें",
+      "uploadResume": "रिज्यूमे अपलोड करें",
+      "noResume": "अभी तक कोई रिज्यूमे अपलोड नहीं किया गया।",
+      "resumeFormat": "PDF, DOC, या DOCX 5MB तक",
+      "certifications": "प्रमाणपत्र",
+      "addCertification": "प्रमाणपत्र जोड़ें",
+      "noCertifications": "अभी तक कोई प्रमाणपत्र नहीं जोड़ा गया।",
+      "skillsAssessment": "कौशल मूल्यांकन"
+    },
+    "skills": {
+      "plumbing": "प्लंबिंग",
+      "carpentry": "बढ़ईगीरी",
+      "advanced": "उन्नत",
+      "intermediate": "मध्यम",
+      "updateSkills": "कौशल अपडेट करें"
+    },
+    "vehicles": {
+      "availableVehicles": "उपलब्ध वाहन",
+      "vehicleName": "वाहन का नाम",
+      "model": "मॉडल",
+      "capacity": "क्षमता",
+      "addVehicle": "वाहन जोड़ें"
+    }
+  },
+  "modal": {
+    "confirmDeletion": "हटाने की पुष्टि करें",
+    "deleteConfirmMessage": "क्या आप वाकई इस वाहन आवश्यकता को हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।"
   }
 }

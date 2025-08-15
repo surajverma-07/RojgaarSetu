@@ -241,6 +241,100 @@
       "noJobsFound": "No matching jobs found."
     }
   },
+  "vehicles": {
+    "posting": {
+      "title": "Post Vehicle / Instrument",
+      "subtitle": "Fill out the details below to post your vehicle or instrument for rent.",
+      "success": "Vehicle post created successfully!",
+      "error": "Vehicle posting creation failed. Please try again.",
+      "posting": "Submitting...",
+      "submit": "Submit",
+      "validationError": "Please fill: {{fields}}"
+    },
+    "update": {
+      "success": "Vehicle post updated successfully!",
+      "error": "Update failed. Please try again.",
+      "updating": "Updating...",
+      "saveChanges": "Save Changes"
+    },
+    "delete": {
+      "success": "Vehicle post deleted successfully!",
+      "error": "Deletion failed. Please try again.",
+      "deleting": "Deleting...",
+      "confirmTitle": "Confirm Deletion",
+      "confirmMessage": "Are you sure you want to delete this vehicle post?"
+    },
+    "details": {
+      "title": "Vehicle Details"
+    },
+    "fields": {
+      "title": "Title",
+      "titlePlaceholder": "Brief title",
+      "type": "Type",
+      "selectType": "Select...",
+      "payscale": "Pay Scale",
+      "payscalePlaceholder": "e.g. 1500",
+      "brand": "Brand",
+      "brandPlaceholder": "e.g. Toyota",
+      "quantity": "Quantity",
+      "quantityPlaceholder": "1",
+      "purchaseDate": "Purchase Date",
+      "location": "Location",
+      "locationPlaceholder": "City / Area",
+      "organization": "Organization",
+      "organizationPlaceholder": "If different from your profile",
+      "otherDetails": "Other Details",
+      "otherDetailsPlaceholder": "Any additional info"
+    },
+    "types": {
+      "vehicle": "Vehicle",
+      "instrument": "Instrument"
+    },
+    "browse": {
+      "title": "Available Vehicles",
+      "subtitle": "Search and rent vehicles that match your project requirements",
+      "refreshVehicles": "Refresh Vehicles",
+      "filters": {
+        "searchPlaceholder": "Search by title, brand, location",
+        "minPricePlaceholder": "Min Price (₹/day)"
+      },
+      "errors": {
+        "loadFailed": "Failed to load vehicles. Please try again later."
+      },
+      "noVehiclesFound": "No matching vehicles found."
+    },
+    "application": {
+      "title": "Apply for {{vehicleTitle}}",
+      "subtitle": "Please fill in the required details to submit your application",
+      "success": "Application submitted successfully!",
+      "error": "Error submitting application",
+      "submitting": "Submitting…",
+      "submit": "Submit Application",
+      "backToDetails": "Back to Details",
+      "fields": {
+        "ownerDetails": "Your Details",
+        "ownerDetailsPlaceholder": "Describe your experience and requirements",
+        "uploadImages": "Upload Vehicle Images"
+      },
+      "imagePreview": "Vehicle {{number}}"
+    },
+    "errors": {
+      "notFound": "Vehicle post not found or unauthorized."
+    }
+  },
+  "recommendations": {
+    "titles": {
+      "jobRecommendations": "Job Recommendations",
+      "workerRecommendations": "Worker Recommendations",
+      "vehicleRecommendations": "Vehicle Recommendations",
+      "recommendations": "Recommendations"
+    },
+    "subtitle": "Based on your profile and preferences",
+    "noRecommendations": "No recommendations found. Update your profile to get better matches.",
+    "errors": {
+      "loadFailed": "Failed to load recommendations. Please try again later."
+    }
+  },
   "common": {
     "loading": "Loading...",
     "perDay": "day",
@@ -544,5 +638,101 @@
       "vehicleApplicationRejected": "Vehicle application rejected",
       "actionFailed": "Action failed"
     }
+  },
+  "profile": {
+    "contractor": {
+      "title": "Contractor Profile"
+    },
+    "worker": {
+      "title": "Worker Profile"
+    },
+    "owner": {
+      "title": "Vehicle/Instrument Owner Profile"
+    },
+    "editProfile": "Edit Profile",
+    "viewMode": "View Mode",
+    "saveProfile": "Save Profile",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "profileImageAlt": "Profile",
+    "changePhoto": "Change Photo",
+    "uploadPhoto": "Upload Photo",
+    "imageUploadSuccess": "Image uploaded successfully!",
+    "imageUploadError": "Error uploading image. Please try again.",
+    "resumeUploadSuccess": "Resume uploaded successfully!",
+    "resumeUploadError": "Error uploading resume. Please try again.",
+    "updateSuccess": "Profile updated successfully!",
+    "updateError": "Error updating profile. Please try again.",
+    "errorLoading": "Error loading profile",
+    "completion": {
+      "low": "Your profile needs attention! Complete it to increase visibility.",
+      "medium": "You're making progress! Keep adding details to your profile.",
+      "high": "Your profile is looking good! Just a few more details to complete.",
+      "complete": "Excellent! Your profile is complete and will attract more clients.",
+      "completeWorker": "Excellent! Your profile is complete and will attract more employers."
+    },
+    "fields": {
+      "fullName": "Full Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "location": "Location",
+      "role": "Role",
+      "organization": "Organization",
+      "organizationName": "Organization Name",
+      "workProfile": "Work Profile",
+      "workProfilePlaceholder": "Describe your work profile",
+      "currentStatus": "Current Status",
+      "lookingFor": "Looking For",
+      "lookingForPlaceholder": "e.g. Construction, Driving, Plumbing",
+      "pastExperience": "Past Experience",
+      "pastExperiencePlaceholder": "Describe your past work experience",
+      "expectedSalary": "Expected Salary (₹/day)"
+    },
+    "status": {
+      "unemployed": "Unemployed",
+      "working": "Working"
+    },
+    "availableForWork": "Available for Work",
+    "currentlyEmployed": "Currently Employed",
+    "memberSince": "Member since Jan 2023",
+    "notSpecified": "Not specified",
+    "noWorkProfile": "No work profile listed",
+    "noExperience": "No experience listed",
+    "tabs": {
+      "profile": "Profile",
+      "documents": "Documents"
+    },
+    "documents": {
+      "resume": "Resume",
+      "resumeFile": "Resume.pdf",
+      "uploadedOn": "Uploaded on Jan 15, 2023",
+      "view": "View",
+      "change": "Change",
+      "uploadResume": "Upload Resume",
+      "noResume": "No resume uploaded yet.",
+      "resumeFormat": "PDF, DOC, or DOCX up to 5MB",
+      "certifications": "Certifications",
+      "addCertification": "Add Certification",
+      "noCertifications": "No certifications added yet.",
+      "skillsAssessment": "Skills Assessment"
+    },
+    "skills": {
+      "plumbing": "Plumbing",
+      "carpentry": "Carpentry",
+      "advanced": "Advanced",
+      "intermediate": "Intermediate",
+      "updateSkills": "Update Skills"
+    },
+    "vehicles": {
+      "availableVehicles": "Available Vehicles",
+      "vehicleName": "Vehicle Name",
+      "model": "Model",
+      "capacity": "Capacity",
+      "addVehicle": "Add Vehicle"
+    }
+  },
+  "modal": {
+    "confirmDeletion": "Confirm Deletion",
+    "deleteConfirmMessage": "Are you sure you want to delete this vehicle requirement? This action cannot be undone."
   }
 }
