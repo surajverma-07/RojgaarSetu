@@ -1,12 +1,16 @@
-import { useState } from 'react'
-import { useGetAllVehiclesQuery } from '../../redux/api/vehicleApiSlice'
-import { Truck, AlertCircle } from 'lucide-react'
-import { Link } from 'react-router-dom'
+"use client"
+
+import { useState } from "react"
+import { useTranslation } from "react-i18next"
+import { useGetAllVehiclesQuery } from "../../redux/api/vehicleApiSlice"
+import { Truck, AlertCircle } from "lucide-react"
+import { Link } from "react-router-dom"
 
 const AllVehicles = () => {
+  const { t } = useTranslation()
   const { data, isLoading, isError, refetch } = useGetAllVehiclesQuery()
-  const [searchTerm, setSearchTerm] = useState('')
-  const [minPrice, setMinPrice] = useState('')
+  const [searchTerm, setSearchTerm] = useState("")
+  const [minPrice, setMinPrice] = useState("")
 
   const filterVehicles = () => {
     const vehicles = data?.vehicleForms || []
@@ -17,8 +21,7 @@ const AllVehicles = () => {
         vehicle.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
         vehicle.location.toLowerCase().includes(searchTerm.toLowerCase())
 
-      const meetsPrice =
-        minPrice === '' || vehicle.payscale >= parseInt(minPrice)
+      const meetsPrice = minPrice === "" || vehicle.payscale >= Number.parseInt(minPrice)
 
       return matchesSearch && meetsPrice
     })
@@ -35,10 +38,8 @@ const AllVehicles = () => {
               <Truck className="h-6 w-6 text-blue-600" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Available Vehicles</h1>
-              <p className="text-gray-600 mt-1">
-                Search and rent vehicles that match your project requirements
-              </p>
+              <h1 className="text-2xl font-bold text-gray-900">{t("vehicles.browse.title")}</h1>
+              <p className="text-gray-600 mt-1">{t("vehicles.browse.subtitle")}</p>
             </div>
           </div>
 
@@ -46,14 +47,14 @@ const AllVehicles = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             <input
               type="text"
-              placeholder="Search by title, brand, location"
+              placeholder={t("vehicles.browse.filters.searchPlaceholder")}
               className="border border-gray-300 rounded px-4 py-2"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <input
               type="number"
-              placeholder="Min Price (₹/day)"
+              placeholder={t("vehicles.browse.filters.minPricePlaceholder")}
               className="border border-gray-300 rounded px-4 py-2"
               value={minPrice}
               onChange={(e) => setMinPrice(e.target.value)}
@@ -61,11 +62,8 @@ const AllVehicles = () => {
           </div>
 
           {/* Refresh Button */}
-          <button
-            onClick={refetch}
-            className="mb-6 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-          >
-            Refresh Vehicles
+          <button onClick={refetch} className="mb-6 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            {t("vehicles.browse.refreshVehicles")}
           </button>
 
           {/* Loading State */}
@@ -79,9 +77,7 @@ const AllVehicles = () => {
             <div className="bg-red-50 border-l-4 border-red-500 p-4">
               <div className="flex items-center">
                 <AlertCircle className="h-5 w-5 text-red-500 mr-2" />
-                <span className="text-red-700">
-                  Failed to load vehicles. Please try again later.
-                </span>
+                <span className="text-red-700">{t("vehicles.browse.errors.loadFailed")}</span>
               </div>
             </div>
           ) : (
@@ -94,20 +90,20 @@ const AllVehicles = () => {
                   >
                     <div className="flex justify-between items-start">
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-gray-900">
-                          {vehicle.title}
-                        </h3>
-                        <p className="text-sm text-gray-600 mb-2">
-                          {vehicle.otherDetails}
-                        </p>
+                        <h3 className="text-lg font-semibold text-gray-900">{vehicle.title}</h3>
+                        <p className="text-sm text-gray-600 mb-2">{vehicle.otherDetails}</p>
                         <div className="flex flex-wrap gap-4 text-sm text-gray-500">
-                          <span>🏷️ Brand: {vehicle.brand}</span>
-                          <span>📍 {vehicle.location}</span>
-                          <span>💰 ₹{vehicle.payscale}/day</span>
-                          <span>🔢 Quantity: {vehicle.quantity}</span>
                           <span>
-                            📅 {new Date(vehicle.purchaseDate).toLocaleDateString()}
+                            🏷️ {t("vehicles.fields.brand")}: {vehicle.brand}
                           </span>
+                          <span>📍 {vehicle.location}</span>
+                          <span>
+                            💰 ₹{vehicle.payscale}/{t("common.day")}
+                          </span>
+                          <span>
+                            🔢 {t("vehicles.fields.quantity")}: {vehicle.quantity}
+                          </span>
+                          <span>📅 {new Date(vehicle.purchaseDate).toLocaleDateString()}</span>
                           <span>🏢 {vehicle.organization}</span>
                         </div>
                       </div>
@@ -115,15 +111,13 @@ const AllVehicles = () => {
                         to={`/vehicle/view/${vehicle._id}`}
                         className="ml-4 px-4 py-2 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition"
                       >
-                        View Details
+                        {t("common.actions.viewDetails")}
                       </Link>
                     </div>
                   </div>
                 ))
               ) : (
-                <p className="text-center text-gray-500 py-12">
-                  No matching vehicles found.
-                </p>
+                <p className="text-center text-gray-500 py-12">{t("vehicles.browse.noVehiclesFound")}</p>
               )}
             </div>
           )}
