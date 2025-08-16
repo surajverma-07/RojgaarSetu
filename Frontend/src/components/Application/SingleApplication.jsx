@@ -88,11 +88,6 @@ function SingleApplication() {
       )}
 
       <div className="mt-6 flex space-x-4">
-        {application.status === "underreview" && (
-          <ActionButton variant="primary" onClick={() => handleAction("consider")}>
-            {t("common.consider")}
-          </ActionButton>
-        )}
         {application.status !== "rejected" && (
           <ActionButton variant="danger" onClick={() => handleAction("reject")}>
             {t("common.reject")}
