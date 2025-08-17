@@ -1,84 +1,41 @@
 import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
-import pkg from "body-parser"
-import connectDB from "./db/index.js"
 import dotenv from "dotenv"
-import http from "http"
-import { Server } from "socket.io"
 import path from "path"
 import { fileURLToPath } from "url"
+import http from "http"
+import helmet from "helmet"
+import connectDB from "./db/index.js"
 
-// Load environment variables
-dotenv.config({
-  path: "./.env",
-})
-const { urlencoded } = pkg
+dotenv.config({ path: "./.env" })
 
-// Get current directory
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// Create Express app and HTTP server
 const app = express()
 const server = http.createServer(app)
 
-// Update the CORS configuration for better security
+const allowedOrigins = (process.env.FRONTEND_URLS || "http://localhost:5173")
+  .split(",")
+
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || "http://localhost:5173",
+  origin: allowedOrigins,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 }
 
-// Ensure the socket.io CORS configuration matches the Express CORS configuration
-const io = new Server(server, {
-  cors: corsOptions,
-})
-
-// Middleware
+app.use(cors(corsOptions))
+app.use(helmet())
 app.use(express.json())
 app.use(cookieParser())
-app.use(urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"))
-
-// Serve static files from temp directory
 app.use("/temp", express.static(path.join(__dirname, "temp")))
 
-app.use(cors(corsOptions))
 const port = process.env.PORT || 3000
 
-// Socket.io connection handling
-io.on("connection", (socket) => {
-  console.log("A user connected:", socket.id)
-
-  // Join a room based on user ID
-  socket.on("join", (userId) => {
-    socket.join(userId)
-    console.log(`User ${userId} joined their room`)
-  })
-
-  // Handle disconnect
-  socket.on("disconnect", () => {
-    console.log("A user disconnected:", socket.id)
-  })
-})
-
-// Export socket.io instance for use in notification utility
-export const socketIO = io
-
-//database connection
-connectDB()
-  .then(() => {
-    server.listen(port, () => {
-      console.log(`server is running at http://localhost:${port}`)
-    })
-  })
-  .catch((err) => {
-    console.log("Mongo DB connection error :: ", err)
-  })
-
-// Routes import
 import authRoutes from "./routes/auth.routes.js"
 import profileRoutes from "./routes/profile.routes.js"
 import workerRoutes from "./routes/worker.routes.js"
@@ -89,9 +46,7 @@ import pdfRoutes from "./routes/pdf.routes.js"
 import recommendationRoutes from "./routes/recommendation.routes.js"
 import jobRoutes from "./routes/job.routes.js"
 import vehicleRoutes from "./routes/vehicle.routes.js"
- 
 
-// Routes declaration
 app.use("/api/v1/auth", authRoutes)
 app.use("/api/v1/profile", profileRoutes)
 app.use("/api/v1/worker", workerRoutes)
@@ -102,22 +57,27 @@ app.use("/api/v1/pdf", pdfRoutes)
 app.use("/api/v1/recommendations", recommendationRoutes)
 app.use("/api/v1/jobs", jobRoutes)
 app.use("/api/v1/vehicles", vehicleRoutes)
- 
- 
 
-// Root route for API health check
 app.get("/", (req, res) => {
   res.json({ message: "Gig Worker API is running" })
 })
 
-// Error handling middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack)
+  console.error(err)
   res.status(500).json({
     success: false,
-    message: "Something went wrong!",
-    error: err.message,
+    message: "Internal Server Error",
   })
 })
+
+connectDB()
+  .then(() => {
+    server.listen(port, () => {
+      console.log(`Server running on http://localhost:${port}`)
+    })
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err)
+  })
 
 export default app

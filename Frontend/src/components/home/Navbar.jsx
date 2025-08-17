@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { Menu, X } from "lucide-react"
 import { useLogoutApiMutation } from "../../redux/api/authApiSlice"
 import { useGetProfileQuery } from "@/redux/api/profileApiSlice"
-import { logout } from "@/redux/slices/authSlice"
+import { logoutAndClearData } from "@/redux/slices/authSlice"
 import { useTranslation } from "react-i18next"
 import LanguageSwitch from ".././common/LanguageSwitch"
 
@@ -23,7 +23,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     await logoutApi().unwrap()
-    dispatch(logout())
+    dispatch(logoutAndClearData())
     navigate("/")
   }
 
