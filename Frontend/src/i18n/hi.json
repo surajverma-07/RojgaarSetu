@@ -364,6 +364,7 @@
     "accepted": "स्वीकृत",
     "rejected": "अस्वीकृत",
     "offerReceived": "ऑफर प्राप्त",
+    "offerAccepted": "ऑफर स्वीकार किया गया",
     "unknown": "अज्ञात",
     "actions": {
       "download": "डाउनलोड",

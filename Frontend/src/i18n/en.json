@@ -364,6 +364,7 @@
     "accepted": "Accepted",
     "rejected": "Rejected",
     "offerReceived": "Offer Received",
+    "offerAccepted": "Offer Accepted",
     "unknown": "Unknown",
     "actions": {
       "download": "Download",
