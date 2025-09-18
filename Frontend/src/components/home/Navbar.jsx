@@ -22,8 +22,8 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const handleLogout = async () => {
-    await logoutApi().unwrap()
     dispatch(logoutAndClearData())
+    await logoutApi().unwrap()
     navigate("/")
   }
 
