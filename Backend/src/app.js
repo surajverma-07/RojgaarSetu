@@ -16,7 +16,7 @@ const __dirname = path.dirname(__filename)
 const app = express()
 const server = http.createServer(app)
 
-const allowedOrigins = (process.env.FRONTEND_URLS || "http://localhost:5173")
+const allowedOrigins = (process.env.FRONTEND_URLS || "https://rojgaarsetu.netlify.app")
   .split(",")
 
 const corsOptions = {
